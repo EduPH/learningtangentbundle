@@ -4,9 +4,9 @@ Code for the paper *"Learning Tangent Bundles and Characteristic Classes with Au
 
 ## Overview
 
-This repository implements **autoencoder atlases**: collections of locally trained encoder–decoder pairs that form a learned atlas on a data manifold. Rather than computing a single global embedding, we train local autoencoders on overlapping chart domains and extract differential-topological invariants from the transition maps between charts.
+This repository implements **autoencoder atlases**: collections of locally trained encoder, decoder pairs that form a learned atlas on a data manifold. Rather than computing a single global embedding, we train local autoencoders on overlapping chart domains and extract differential, topological invariants from the transition maps between charts.
 
-The key theoretical insight is that reconstruction-consistent autoencoders automatically satisfy the cocycle condition, and linearizing their transition maps yields a vector bundle isomorphic to the tangent bundle. This gives direct access to **characteristic classes** — in particular the first Stiefel–Whitney class $w_1$, whose vanishing characterizes orientability.
+The key theoretical insight is that reconstruction-consistent autoencoders automatically satisfy the cocycle condition, and linearizing their transition maps yields a vector bundle isomorphic to the tangent bundle. This gives direct access to **characteristic classes**, in particular the first Stiefel–Whitney class $w_1$, whose vanishing characterizes orientability.
 
 ### What this code does
 
