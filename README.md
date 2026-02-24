@@ -4,9 +4,9 @@ Code for the paper *"Learning Tangent Bundles and Characteristic Classes with Au
 
 ## Overview
 
-This repository implements **autoencoder atlases**: collections of locally trained encoder–decoder pairs that form a learned atlas on a data manifold. Rather than computing a single global embedding, we train local autoencoders on overlapping chart domains and extract differential-topological invariants from the transition maps between charts.
+This repository implements **autoencoder atlases**: collections of locally trained encoder, decoder pairs that form a learned atlas on a data manifold. Rather than computing a single global embedding, we train local autoencoders on overlapping chart domains and extract differential, topological invariants from the transition maps between charts.
 
-The key theoretical insight is that reconstruction-consistent autoencoders automatically satisfy the cocycle condition, and linearizing their transition maps yields a vector bundle isomorphic to the tangent bundle. This gives direct access to **characteristic classes** — in particular the first Stiefel–Whitney class $w_1$, whose vanishing characterizes orientability.
+The key theoretical insight is that reconstruction-consistent autoencoders automatically satisfy the cocycle condition, and linearizing their transition maps yields a vector bundle isomorphic to the tangent bundle. This gives direct access to **characteristic classes**, in particular the first Stiefel–Whitney class $w_1$, whose vanishing characterizes orientability.
 
 ### What this code does
 
@@ -14,7 +14,7 @@ Given a point cloud sampled from a manifold $M$:
 
 1. **Learns an atlas** $\mathcal{A} = \{(U_i, E_i, D_i)\}$ of local autoencoders on an open cover $\{U_i\}$.
 2. **Extracts transition maps** $T_{ji} = E_j \circ D_i$ between overlapping charts.
-3. **Computes the Jacobian sign cocycle** $\omega_{ji}(x) = \operatorname{sign}(\det\, d(T_{ji})_{E_i(x)})$.
+3. **Computes the Jacobian sign cocycle** $\omega_{ji}(x) = sign(\det\, d(T_{ji})_{E_i(x)})$.
 4. **Tests orientability** by checking whether $\omega$ is a coboundary in $C^1(\mathcal{U}; \mathbb{Z}/2)$.
 
 ## Repository Structure
@@ -41,7 +41,7 @@ An **autoencoder atlas** on a manifold $M$ is a collection $\mathcal{A} = \{(U_i
 - $\{U_i\}$ is an open cover of $M$
 - $E_i: U_i \to Z_i \subset \mathbb{R}^d$ is the encoder (local coordinates)
 - $D_i: Z_i \to M$ is the decoder (inverse chart map)
-- $D_i \circ E_i \approx \operatorname{Id}_{U_i}$ (reconstruction consistency)
+- $D_i \circ E_i \approx Id_{U_i}$ (reconstruction consistency)
 
 ### Transition Maps and Cocycle Condition
 
@@ -49,7 +49,7 @@ For overlapping charts $U_i \cap U_j \neq \emptyset$, the **transition map** is
 
 $$T_{ji} = E_j \circ D_i : E_i(U_i \cap U_j) \to E_j(U_i \cap U_j).$$
 
-When reconstruction is exact ($D_i \circ E_i = \operatorname{Id}$), these satisfy the **cocycle condition** on triple overlaps:
+When reconstruction is exact ($D_i \circ E_i = Id$), these satisfy the **cocycle condition** on triple overlaps:
 
 $$T_{ki} = T_{kj} \circ T_{ji} \quad \text{on } U_i \cap U_j \cap U_k.$$
 
@@ -57,11 +57,11 @@ This is not imposed as a regularization term — it emerges algebraically from r
 
 ### Linearized Transition Maps and Tangent Bundle
 
-The **linearized transition maps** $g_{ji}(x) = d(T_{ji})_{E_i(x)} \in \operatorname{GL}_d(\mathbb{R})$ define a $\operatorname{GL}_d(\mathbb{R})$-cocycle. When $d = \dim M$ and the atlas is compatible with the smooth structure, the resulting vector bundle $\mathcal{T}_{\mathcal{A}}$ is isomorphic to the tangent bundle $TM$.
+The **linearized transition maps** $g_{ji}(x) = d(T_{ji})_{E_i(x)} \in GL_d(\mathbb{R})$ define a $GL_d(\mathbb{R})$-cocycle. When $d = \dim M$ and the atlas is compatible with the smooth structure, the resulting vector bundle $\mathcal{T}_{\mathcal{A}}$ is isomorphic to the tangent bundle $TM$.
 
 ### Orientability via the Sign Cocycle
 
-The **sign cocycle** $\omega_{ji}(x) = \operatorname{sign}(\det\, g_{ji}(x)) \in \{+1, -1\}$ defines a Čech 1-cocycle in $C^1(\mathcal{U}; \mathbb{Z}/2)$. The manifold $M$ is **orientable** if and only if $[\omega] = 0$ in $H^1(M; \mathbb{Z}/2)$, which is equivalent to $\omega$ being a coboundary: there exist signs $\nu_i \in \{+1, -1\}$ such that
+The **sign cocycle** $\omega_{ji}(x) = sign(\det\, g_{ji}(x)) \in \{+1, -1\}$ defines a Čech 1-cocycle in $C^1(\mathcal{U}; \mathbb{Z}/2)$. The manifold $M$ is **orientable** if and only if $[\omega] = 0$ in $H^1(M; \mathbb{Z}/2)$, which is equivalent to $\omega$ being a coboundary: there exist signs $\nu_i \in \{+1, -1\}$ such that
 
 $$\omega_{ji} = \nu_j \cdot \nu_i \quad \text{on each connected component of } U_i \cap U_j.$$
 
@@ -74,7 +74,7 @@ The code tracks three key quantities from the paper:
 | Symbol | Name | Definition | Role |
 |--------|------|------------|------|
 | $\varepsilon$ | Reconstruction error | $\sup_x \\|D_i(E_i(x)) - x\\|$ | Approximation quality |
-| $\eta$ | Differential error | $\sup_x \\|d(D_i \circ E_i)_x\|_{T_xM} - \operatorname{Id}\\|\_{\mathrm{op}}$ | Tangent map fidelity |
+| $\eta$ | Differential error | $\sup_x \\|d(D_i \circ E_i)_x\|_{T_xM} - Id\\|\_{\mathrm{op}}$ | Tangent map fidelity |
 | $\delta$ | Non-degeneracy gap | $\min_{i,j,x} \|\det\, g_{ji}(x)\|$ | Sign cocycle stability |
 
 When $\delta > 0$ and $\eta$ is sufficiently small, the sign cocycle is stable under perturbations and correctly detects orientability.
@@ -149,7 +149,7 @@ atlas = AtlasAutoencoder(
     latent_dim=2,
     hidden_dims=[32, 16]
 )
-atlas.fit(epochs=200, lambda_smooth=0.1, lambda_jac=0.01)
+atlas.fit(epochs=200,  lambda_jac=0.01)
 
 # 4. Inspect theoretical metrics
 metrics = atlas.print_metrics_summary()
@@ -166,7 +166,7 @@ print(f"Orientable: {result['orientable']}")
 
 | Method | Description |
 |--------|-------------|
-| `fit(epochs, batch_size, lambda_smooth, lambda_jac, lambda_cocycle)` | Train all local autoencoders |
+| `fit(epochs, batch_size, lambda_jac, lambda_cocycle)` | Train all local autoencoders |
 | `encode(x, chart)` / `decode(z, chart)` | Encode/decode with a specific chart |
 | `transition_map(z, i, j)` | Compute $T_{ji}(z) = E_j(D_i(z))$ |
 | `compute_transition_jacobians(i, j)` | Jacobian matrices of $T_{ji}$ on overlap |
@@ -182,7 +182,7 @@ Takes a trained `AtlasAutoencoder`, the data, and the cover. Handles disconnecte
 
 The training loss for each chart combines three terms:
 
-$$\mathcal{L}_i = \underbrace{\frac{1}{|U_i|}\sum_{x \in U_i} \|x - D_i(E_i(x))\|^2}_{\text{reconstruction}} + \lambda_s \underbrace{\mathbb{E}[\|E_i(x) - E_i(x+\epsilon)\|^2]}_{\text{smoothness}} + \lambda_J \underbrace{\max(0,\, \epsilon_J - \sigma_{\min}(dE_i))}_{\text{Jacobian regularity}}$$
+$$\mathcal{L}_i = \underbrace{\frac{1}{|U_i|}\sum_{x \in U_i} \|x - D_i(E_i(x))\|^2}_{\text{reconstruction}} + \lambda_J \underbrace{\max(0,\, \epsilon_J - \sigma_{\min}(dE_i))}_{\text{Jacobian regularity}}$$
 
 An optional cocycle loss on triple overlaps can be added but is not required — cocycle consistency emerges from reconstruction alone.
 
@@ -227,6 +227,3 @@ If you use this code, please cite:
 }
 ```
 
-## License
-
-[Specify your license here]
