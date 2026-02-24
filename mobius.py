@@ -57,7 +57,6 @@ EXPERIMENT_CONFIG = {
     # Training
     'epochs': 500,
     'batch_size': 64,
-    'lambda_smooth': 0.0,
     'lambda_jac': 0.0,
     'lambda_cocycle': 0.0,
     
@@ -190,7 +189,6 @@ def run_single_trial(
     system.fit(
         epochs=config['epochs'],
         batch_size=config['batch_size'],
-        lambda_smooth=config['lambda_smooth'],
         lambda_jac=config['lambda_jac'],
         lambda_cocycle=config['lambda_cocycle'],
         verbose=verbose
@@ -608,7 +606,6 @@ def run_single_visualization(config: Dict = None, seed: int = 42):
     system.fit(
         epochs=config['epochs'],
         batch_size=config['batch_size'],
-        lambda_smooth=config['lambda_smooth'],
         lambda_jac=config['lambda_jac'],
         lambda_cocycle=config['lambda_cocycle'],
         verbose=True

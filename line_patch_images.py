@@ -1,24 +1,26 @@
 """
-Klein Bottle Orientability Experiment
-=====================================
+Line Patch Images - ℝP² Orientability Experiment
+=================================================
 
-This script runs multiple trials of the atlas autoencoder on the Klein bottle
-and collects metrics for inclusion in the paper. The Klein bottle is non-orientable,
-so we expect the algorithm to correctly identify wâ‚(TK) â‰  0.
-
-The Klein bottle is a non-orientable closed surface that cannot be embedded in â„Â³
-without self-intersection. We use the 4D embedding from DREiMaC which avoids
-self-intersection.
+This script runs multiple trials of the atlas autoencoder on line patch images
+and collects metrics for inclusion in the paper. The line patch space is
+homeomorphic to ℝP² (real projective plane), which is non-orientable.
 
 Mathematical background:
-- Klein bottle K = TÂ² with one SÂ¹ factor "twisted"
-- Hâ‚(K; â„¤/2) = â„¤/2 âŠ• â„¤/2, Hâ‚‚(K; â„¤/2) = â„¤/2
-- wâ‚(TK) â‰  0 (non-orientable)
-- The orientation double cover of K is the torus TÂ²
+- Line patches are small image patches containing line segments at various angles
+- The space of lines through the origin in ℝ² is ℝP¹ ≅ S¹
+- Adding offsets gives a space homeomorphic to ℝP²
+- ℝP² is non-orientable: w₁(TℝP²) ≠ 0
+- H₂(ℝP²; ℤ/2) = ℤ/2 (detected by persistent homology with ℤ/2 coefficients)
+
+This is a key experiment because:
+1. It demonstrates detection on REAL IMAGE DATA (not synthetic manifolds)
+2. ℝP² cannot be embedded in ℝ³, so we must work in higher dimensions
+3. The non-orientability is subtle and requires careful cover construction
 
 Outputs:
 - JSON file with all metrics from all trials
-- Summary statistics (mean Â± std) for paper tables
+- Summary statistics (mean ± std) for paper tables
 - Figures saved to disk
 """
 
@@ -35,8 +37,15 @@ warnings.filterwarnings('ignore', category=UserWarning)
 from atlasautoencoder import AtlasAutoencoder, plot_all_transitions
 from orientability import check_orientability
 
-# DREiMaC for Klein bottle generation and geodesic-based covers
-from dreimac import GeometryUtils, GeometryExamples
+# DREiMaC for line patch generation and projective coordinate analysis
+from dreimac import (
+    ProjectiveCoords, GeometryUtils, GeometryExamples,
+    PlotUtils, ProjectiveMapUtils
+)
+
+# For persistent homology verification
+from ripser import ripser
+from persim import plot_diagrams
 
 
 # ============================================================
@@ -44,50 +53,43 @@ from dreimac import GeometryUtils, GeometryExamples
 # ============================================================
 
 EXPERIMENT_CONFIG = {
-    'manifold': 'Klein',
-    'manifold_name': 'Klein Bottle',
-    'true_orientable': False,  # Klein bottle is NON-orientable
+    'manifold': 'RP2',
+    'manifold_name': 'ℝP² (Line Patches)',
+    'true_orientable': False,  # ℝP² is NON-orientable
     'intrinsic_dim': 2,
-    'ambient_dim': 4,  # 4D embedding to avoid self-intersection
+    'ambient_dim': 100,  # 10x10 image patches = 100 dimensions
     
-    # Sampling (using DREiMaC)
-    'n_points': 1000,
-    'klein_m': 4,  # Parameter for Klein bottle sampling
-    'klein_n': 2,  # Parameter for Klein bottle sampling
+    # Line patch generation
+    'patch_dim': 10,        # 10x10 pixel patches
+    'n_angles': 75,         # Number of angle samples
+    'n_offsets': 75,        # Number of offset samples
+    'sigma': 0.25,          # Line width parameter
     
-    # Cover: landmark-based geodesic cover
-    'cover_type': 'landmark_geodesic',
-    'n_charts': 8,
-    'cover_percentile': 20,  # Percentile for epsilon selection
-    'n_neighbors_geodesic': 100,  # For geodesic distance computation
+    # Cover: landmark-based with projective coordinates
+    'cover_type': 'landmark_projective',
+    'n_charts': 10,
+    'n_landmarks': 300,
+    'n_neighbors_geodesic': 20,
+    'threshold_percentile': 20,
     
     # Architecture
     'latent_dim': 2,
-    'hidden_dims': [32, 16],
+    'hidden_dims': [64, 32],
     
     # Training
     'epochs': 5000,
     'batch_size': 64,
-    'lambda_jac': 0.01,
+    'lambda_jac': 0.0,
     'lambda_cocycle': 0.0,
     
     # Orientability detection
     'eps_cluster': 1.0,
-    'min_points': 20,
+    'min_points': 100,
     'eps_det': 1e-6,
     
     # Experiment
     'n_trials': 5,
     'random_seed_base': 42,
-    
-    # Retry policy (retrain if reconstruction quality is insufficient)
-    # Motivation: the stability theorem (Theorem 4.6) requires ε small enough
-    # that d·Γ·(L_E L_D + Γ)^{d-1} < δ. High ε invalidates sign cocycle
-    # computation and leads to incorrect orientability detection.
-    'max_retries': 3,               # Max retry attempts per trial
-    'recon_threshold': 0.15,        # Max acceptable sup-ε across charts
-    'extra_epochs_per_extension': 2000,  # Additional epochs when extending training
-    'max_extensions_before_restart': 1,  # Extensions before trying a fresh seed
 }
 
 
@@ -95,75 +97,90 @@ EXPERIMENT_CONFIG = {
 # Data generation
 # ============================================================
 
-def generate_klein_bottle(
-    n_points: int,
-    m: int = 4,
-    n: int = 2,
+def generate_line_patches(
+    patch_dim: int = 10,
+    n_angles: int = 75,
+    n_offsets: int = 75,
+    sigma: float = 0.25,
     seed: int = None
 ) -> np.ndarray:
     """
-    Generate points on the Klein bottle in 4D.
+    Generate line patch images.
     
-    Uses the DREiMaC library's implementation which provides a proper
-    embedding in â„â´ without self-intersection.
+    Each patch is a small grayscale image containing a line segment.
+    The space of all such patches (parameterized by angle and offset)
+    is homeomorphic to ℝP² because:
+    - Angles θ and θ+π give the same line (antipodal identification)
+    - This creates the ℝP² topology
     
     Args:
-        n_points: Number of points to sample
-        m, n: Parameters controlling the Klein bottle shape
-        seed: Random seed for reproducibility
+        patch_dim: Size of each patch (patch_dim × patch_dim pixels)
+        n_angles: Number of angle samples
+        n_offsets: Number of offset samples  
+        sigma: Line width (Gaussian blur parameter)
+        seed: Random seed
         
     Returns:
-        points: Array of shape (n_points, 4)
+        points: Array of shape (n_angles * n_offsets, patch_dim²)
     """
     if seed is not None:
         np.random.seed(seed)
     
-    # DREiMaC's Klein bottle implementation
-    points = GeometryExamples.klein_bottle_4d(n_points, m, n)
+    # Use DREiMaC's line patch generator
+    points = GeometryExamples.line_patches(
+        dim=patch_dim,
+        n_angles=n_angles,
+        n_offsets=n_offsets,
+        sigma=sigma
+    )
     
     return points
 
 
-def create_landmark_cover(
-    points: np.ndarray,
+def create_projective_cover(
+    X: np.ndarray,
     n_charts: int,
-    percentile: float = 20,
-    n_neighbors: int = 100
-) -> Tuple[List[np.ndarray], np.ndarray]:
+    n_landmarks: int = 300,
+    n_neighbors: int = 20,
+    threshold_percentile: float = 20
+) -> Tuple[List[np.ndarray], np.ndarray, np.ndarray, np.ndarray, np.ndarray]:
     """
-    Create a landmark-based geodesic cover.
+    Create a cover suitable for detecting ℝP² non-orientability.
     
-    This method:
-    1. Selects n_charts+1 landmark points using farthest point sampling
-    2. Computes approximate geodesic distances to each landmark
-    3. Creates charts as balls around each landmark
-    
-    This produces a good cover that respects the manifold geometry,
-    which is especially important for the Klein bottle's non-trivial topology.
+    This uses DREiMaC's projective coordinate machinery to:
+    1. Compute geodesic distances via landmark approximation
+    2. Extract projective coordinates that respect the ℝP² topology
+    3. Create charts as geodesic balls around landmarks
     
     Args:
-        points: Data points, shape (n_points, ambient_dim)
-        n_charts: Number of charts to create
-        percentile: Percentile of distances to use as chart radius
-        n_neighbors: Number of neighbors for geodesic approximation
+        X: Data points (line patches)
+        n_charts: Number of charts
+        n_landmarks: Number of landmarks for geodesic computation
+        n_neighbors: k for k-NN graph in geodesic approximation
+        threshold_percentile: Percentile of distances for chart radius
         
     Returns:
         subset_assignments: List of index arrays for each chart
-        points_reordered: Points reordered by landmark computation
+        X_reordered: Points reordered by landmark computation
+        proj_coords: Projective coordinates (for visualization)
+        pointcloud_permutation: Permutation from original to reordered
+        dist_mat: Geodesic distance matrix to landmarks
     """
-    n_landmarks = n_charts + 1
-    
-    # Compute geodesic distances using DREiMaC
+    # Compute geodesic distances to landmarks
     dist_mat, pointcloud_permutation = GeometryUtils.landmark_geodesic_distance(
-        points, n_landmarks, n_neighbors
+        X, n_landmarks, n_neighbors
     )
     
-    # Reorder data according to landmark computation
-    points_reordered = points[pointcloud_permutation]
+    # Reorder data according to landmark permutation
+    X_reordered = X[pointcloud_permutation]
     
-    # Create charts from landmarks
-    # Use percentile of distances as epsilon for good overlap
-    epsilon = np.percentile(dist_mat[1:], percentile)
+    # Compute projective coordinates for visualization
+    pc = ProjectiveCoords(dist_mat, n_landmarks=n_landmarks, distance_matrix=True)
+    proj_coords = pc.get_coordinates(proj_dim=2, perc=0.8, cocycle_idx=0)
+    
+    # Create charts from first n_charts landmarks
+    # Use percentile of distances as epsilon
+    epsilon = np.percentile(dist_mat[1:n_charts+1], threshold_percentile)
     
     subset_assignments = []
     for i in range(n_charts):
@@ -171,50 +188,44 @@ def create_landmark_cover(
         cluster_indices = np.nonzero(dist_mat[i + 1] < epsilon)[0]
         subset_assignments.append(cluster_indices)
     
-    return subset_assignments, points_reordered
+    return subset_assignments, X_reordered, proj_coords, pointcloud_permutation, dist_mat
 
 
-# ============================================================
-# Reconstruction quality evaluation
-# ============================================================
-
-def evaluate_reconstruction_quality(
-    system: AtlasAutoencoder,
-    points: np.ndarray,
-    subset_assignments: List[np.ndarray],
-) -> Dict[str, float]:
+def verify_rp2_topology(X: np.ndarray, save_path: str = None):
     """
-    Quick evaluation of reconstruction quality after training.
+    Verify that the line patch data has ℝP² topology using persistent homology.
     
-    Computes ε = sup_x ||D_i(E_i(x)) - x|| for each chart and returns
-    the maximum (worst-case) and mean values.
+    ℝP² has distinctive homology:
+    - H₀ = ℤ (connected)
+    - H₁ = ℤ/2 (non-orientable)
+    - H₂ = 0 with ℤ coefficients, but ℤ/2 with ℤ/2 coefficients
     
-    This is used by the retry logic to determine whether the trained
-    system satisfies the quality conditions required by the stability
-    theorem. Specifically, the sign cocycle ω_{ji} = sign(det g_{ji})
-    is a valid Čech 1-cocycle only when ε is small enough that
-    
-        d · Γ · (L_E L_D + Γ)^{d-1} < δ,
-    
-    where Γ depends on ε and η. High reconstruction error invalidates
-    this bound and leads to unreliable orientability detection.
-    
-    Returns:
-        Dictionary with 'max_varepsilon', 'mean_varepsilon', and
-        per-chart 'varepsilon_list'.
+    The key signature is H₂ with ℤ/2 coefficients (torsion).
     """
-    import tensorflow as tf
+    print("\nVerifying ℝP² topology via persistent homology...")
     
-    varepsilon_list = []
-    for i in range(system.n_charts):
-        x = tf.constant(points[subset_assignments[i]], dtype=tf.float32)
-        varepsilon_list.append(float(system.compute_varepsilon(i, x).numpy()))
+    # Subsample for computational efficiency
+    n_sample = min(500, len(X))
+    indices = np.random.choice(len(X), size=n_sample, replace=False)
+    X_sample = X[indices]
     
-    return {
-        'max_varepsilon': max(varepsilon_list),
-        'mean_varepsilon': float(np.mean(varepsilon_list)),
-        'varepsilon_list': varepsilon_list,
-    }
+    fig, axes = plt.subplots(1, 2, figsize=(12, 5))
+    
+    for i, prime in enumerate([2, 3]):
+        pd = ripser(X_sample, coeff=prime, maxdim=2)["dgms"]
+        
+        plt.sca(axes[i])
+        plot_diagrams(pd)
+        axes[i].set_title(f"$\\mathbb{{Z}}/{prime}\\mathbb{{Z}}$ coefficients")
+    
+    plt.suptitle("Persistent Homology (ℝP² has H₂ with ℤ/2 coefficients only)")
+    plt.tight_layout()
+    
+    if save_path:
+        plt.savefig(save_path, dpi=150, bbox_inches='tight')
+        plt.close()
+    else:
+        plt.show()
 
 
 # ============================================================
@@ -229,9 +240,6 @@ def run_single_trial(
 ) -> Dict[str, Any]:
     """
     Run a single trial of the experiment.
-    
-    Returns:
-        Dictionary containing all metrics for this trial
     """
     seed = config['random_seed_base'] + trial_idx
     np.random.seed(seed)
@@ -241,23 +249,29 @@ def run_single_trial(
         print(f"TRIAL {trial_idx + 1}/{config['n_trials']} (seed={seed})")
         print(f"{'='*60}")
     
-    # Sample data
-    points = generate_klein_bottle(
-        config['n_points'],
-        m=config['klein_m'],
-        n=config['klein_n'],
+    # Generate data
+    X = generate_line_patches(
+        patch_dim=config['patch_dim'],
+        n_angles=config['n_angles'],
+        n_offsets=config['n_offsets'],
+        sigma=config['sigma'],
         seed=seed
     )
     
+    if verbose:
+        print(f"\nGenerated {len(X)} line patches")
+        print(f"Patch dimension: {config['patch_dim']}×{config['patch_dim']} = {X.shape[1]}")
+    
     # Create cover
     if verbose:
-        print("\nCreating landmark-based cover...")
+        print("\nCreating landmark-based projective cover...")
     
-    subset_assignments, points_reordered = create_landmark_cover(
-        points,
+    subset_assignments, X_ordered, proj_coords, perm, dist_mat = create_projective_cover(
+        X,
         n_charts=config['n_charts'],
-        percentile=config['cover_percentile'],
-        n_neighbors=config['n_neighbors_geodesic']
+        n_landmarks=config['n_landmarks'],
+        n_neighbors=config['n_neighbors_geodesic'],
+        threshold_percentile=config['threshold_percentile']
     )
     n_charts = len(subset_assignments)
     
@@ -267,123 +281,43 @@ def run_single_trial(
         for i, indices in enumerate(subset_assignments):
             print(f"  Chart {i}: {len(indices)} points")
         
-        # Count total overlaps
-        total_overlap = 0
+        # Count overlaps
+        n_overlaps = 0
         for i in range(n_charts):
             for j in range(i + 1, n_charts):
                 overlap = len(np.intersect1d(subset_assignments[i], subset_assignments[j]))
                 if overlap > 0:
-                    total_overlap += 1
-        print(f"  Pairwise overlaps: {total_overlap}")
+                    n_overlaps += 1
+        print(f"  Pairwise overlaps: {n_overlaps}")
     
-    # Build and train atlas autoencoder with retry logic
+    # Build atlas autoencoder
     import tensorflow as tf
+    tf.random.set_seed(seed)
     
-    max_retries = config.get('max_retries', 3)
-    recon_threshold = config.get('recon_threshold', 0.15)
-    extra_epochs = config.get('extra_epochs_per_extension', 2000)
-    max_extensions = config.get('max_extensions_before_restart', 1)
+    system = AtlasAutoencoder(
+        data=X_ordered,
+        n_charts=n_charts,
+        subset_assignments=subset_assignments,
+        latent_dim=config['latent_dim'],
+        hidden_dims=config['hidden_dims']
+    )
     
-    best_system = None
-    best_varepsilon = float('inf')
-    retry_log = []
+    # Train
+    system.fit(
+        epochs=config['epochs'],
+        batch_size=config['batch_size'],
+        lambda_jac=config['lambda_jac'],
+        lambda_cocycle=config['lambda_cocycle'],
+        verbose=verbose
+    )
     
-    attempt = 0
-    while attempt <= max_retries:
-        # Determine seed: original for first attempt, perturbed for restarts
-        n_restarts = sum(1 for r in retry_log if r['action'] == 'restart')
-        current_seed = seed + 1000 * n_restarts
-        
-        if attempt == 0 or retry_log[-1]['action'] == 'restart':
-            # Fresh initialization
-            tf.random.set_seed(current_seed)
-            np.random.seed(current_seed)
-            
-            system = AtlasAutoencoder(
-                data=points_reordered,
-                n_charts=n_charts,
-                subset_assignments=subset_assignments,
-                latent_dim=config['latent_dim'],
-                hidden_dims=config['hidden_dims']
-            )
-            
-            epochs_this_round = config['epochs']
-            extensions_so_far = 0
-            
-            if verbose and attempt > 0:
-                print(f"\n  [Retry {attempt}/{max_retries}] Fresh restart with seed={current_seed}")
-        else:
-            # Extension: continue training the same model
-            epochs_this_round = extra_epochs
-            extensions_so_far += 1
-            
-            if verbose:
-                print(f"\n  [Retry {attempt}/{max_retries}] Extending training by {extra_epochs} epochs")
-        
-        # Train
-        system.fit(
-            epochs=epochs_this_round,
-            batch_size=config['batch_size'],
-            lambda_jac=config['lambda_jac'],
-            lambda_cocycle=config['lambda_cocycle'],
-            verbose=verbose
-        )
-        
-        # Evaluate reconstruction quality
-        quality = evaluate_reconstruction_quality(system, points_reordered, subset_assignments)
-        current_varepsilon = quality['max_varepsilon']
-        
-        if verbose:
-            print(f"\n  Reconstruction quality: max ε = {current_varepsilon:.4f} "
-                  f"(threshold = {recon_threshold:.4f})")
-        
-        # Track the best system seen so far
-        if current_varepsilon < best_varepsilon:
-            best_varepsilon = current_varepsilon
-            best_system = system
-        
-        # Check if quality is acceptable
-        if current_varepsilon <= recon_threshold:
-            if verbose and attempt > 0:
-                print(f"  ✓ Reconstruction quality acceptable after {attempt} retries")
-            break
-        
-        # Decide retry strategy
-        attempt += 1
-        if attempt > max_retries:
-            if verbose:
-                print(f"\n  ⚠ Max retries ({max_retries}) exhausted. "
-                      f"Using best system (max ε = {best_varepsilon:.4f})")
-            system = best_system
-            break
-        
-        if extensions_so_far < max_extensions:
-            action = 'extend'
-        else:
-            action = 'restart'
-        
-        retry_log.append({
-            'attempt': attempt,
-            'action': action,
-            'varepsilon_before': current_varepsilon,
-            'seed': current_seed,
-        })
-    
-    # Collect metrics (using the best system)
-    metrics = collect_metrics(system, points_reordered, subset_assignments, config, trial_idx)
-    
-    # Record retry information in metrics
-    metrics['retry_info'] = {
-        'n_retries': len(retry_log),
-        'final_max_varepsilon': best_varepsilon,
-        'threshold': recon_threshold,
-        'log': retry_log,
-    }
+    # Collect metrics
+    metrics = collect_metrics(system, X_ordered, subset_assignments, config, trial_idx)
     
     # Run orientability detection
     orient_result = check_orientability(
         system=system,
-        points=points_reordered,
+        points=X_ordered,
         subset_assignments=subset_assignments,
         eps_cluster=config['eps_cluster'],
         min_points=config['min_points'],
@@ -403,13 +337,14 @@ def run_single_trial(
         'n_overlaps': len(orient_result['signs']),
     }
     
-    # Record sign information for analysis
+    # Record sign statistics
     if orient_result['signs']:
         metrics['orientability']['sign_summary'] = summarize_signs(orient_result['signs'])
     
     # Save figures if requested
     if save_dir is not None:
-        save_trial_figures(system, points_reordered, subset_assignments, trial_idx, save_dir)
+        save_trial_figures(system, X_ordered, subset_assignments, proj_coords, 
+                          perm, trial_idx, save_dir)
     
     return metrics
 
@@ -467,14 +402,14 @@ def collect_metrics(
     for i in range(system.n_charts):
         x = tf.constant(points[subset_assignments[i]], dtype=tf.float32)
         
-        # Îµ: reconstruction error
+        # ε: reconstruction error
         varepsilon_list.append(float(system.compute_varepsilon(i, x).numpy()))
         varepsilon_mean_list.append(float(system.compute_varepsilon_mean(i, x).numpy()))
         
-        # Î·: differential error (tangent space version)
+        # η: differential error
         eta_list.append(float(system.compute_eta_tangent(i, x).numpy()))
         
-        # Ïƒ_min: encoder regularity
+        # σ_min: encoder regularity
         sigma_min_list.append(float(system.compute_encoder_sigma_min(i, x).numpy()))
     
     metrics['per_chart'] = {
@@ -510,36 +445,54 @@ def save_trial_figures(
     system: AtlasAutoencoder,
     points: np.ndarray,
     subset_assignments: List[np.ndarray],
+    proj_coords: np.ndarray,
+    perm: np.ndarray,
     trial_idx: int,
     save_dir: str
 ):
     """Save visualization figures for a trial."""
     os.makedirs(save_dir, exist_ok=True)
     
-    # For 4D data, project to 3D for visualization
-    # Use first 3 coordinates
-    fig = plt.figure(figsize=(10, 5))
+    # Visualize some line patches
+    fig = plt.figure(figsize=(10, 10))
+    n_show = min(64, len(points))
+    indices = np.random.choice(len(points), size=n_show, replace=False)
     
-    ax = fig.add_subplot(121, projection='3d')
-    ax.scatter(points[:, 0], points[:, 1], points[:, 2],
-               c=points[:, 3], cmap='viridis', s=2, alpha=0.6)
-    ax.set_title('Klein Bottle (projected to 3D)')
-    ax.set_xlabel('xâ‚')
-    ax.set_ylabel('xâ‚‚')
-    ax.set_zlabel('xâ‚ƒ')
+    patch_dim = int(np.sqrt(points.shape[1]))
+    for i, idx in enumerate(indices[:64]):
+        ax = fig.add_subplot(8, 8, i + 1)
+        ax.imshow(points[idx].reshape(patch_dim, patch_dim), cmap='gray')
+        ax.axis('off')
     
-    # 2D projection
-    ax2 = fig.add_subplot(122)
-    sc = ax2.scatter(points[:, 0], points[:, 1],
-                     c=points[:, 3], cmap='viridis', s=2, alpha=0.6)
-    ax2.set_aspect('equal')
-    ax2.set_xlabel('xâ‚')
-    ax2.set_ylabel('xâ‚‚')
-    plt.colorbar(sc, ax=ax2, label='xâ‚„')
-    
-    fig.savefig(os.path.join(save_dir, f'pointcloud_trial_{trial_idx}.png'),
+    plt.suptitle('Sample Line Patches')
+    fig.savefig(os.path.join(save_dir, f'patches_trial_{trial_idx}.png'),
                 dpi=150, bbox_inches='tight')
     plt.close(fig)
+    
+    # Projective coordinates visualization (stereographic projection)
+    if proj_coords is not None and len(proj_coords) > 0:
+        fig, ax = plt.subplots(figsize=(8, 8))
+        
+        # Get stereographic projection
+        try:
+            subsample_idx = GeometryUtils.get_greedy_perm_pc(proj_coords, 
+                                                             min(300, len(proj_coords)))['perm']
+            stereo = ProjectiveMapUtils.get_stereo_proj_codim1(proj_coords[subsample_idx])
+            
+            ax.scatter(stereo[:, 0], stereo[:, 1], s=5, alpha=0.6)
+            ax.set_aspect('equal')
+            ax.set_title('Projective Coordinates (Stereographic Projection)')
+            
+            # Draw projective plane boundary
+            theta = np.linspace(0, 2*np.pi, 100)
+            ax.plot(np.cos(theta), np.sin(theta), 'k--', alpha=0.3)
+        except Exception as e:
+            ax.text(0.5, 0.5, f'Projection failed: {e}', ha='center', va='center',
+                   transform=ax.transAxes)
+        
+        fig.savefig(os.path.join(save_dir, f'projcoords_trial_{trial_idx}.png'),
+                    dpi=150, bbox_inches='tight')
+        plt.close(fig)
     
     # Transition maps
     fig, _ = plot_all_transitions(system)
@@ -575,6 +528,17 @@ def run_experiment(
     print(f"# Ground truth: {'Orientable' if config['true_orientable'] else 'Non-orientable'}")
     print(f"# Output directory: {save_dir}")
     print(f"{'#'*60}")
+    
+    # Verify topology on first trial's data
+    print("\nVerifying ℝP² topology...")
+    X_verify = generate_line_patches(
+        patch_dim=config['patch_dim'],
+        n_angles=config['n_angles'],
+        n_offsets=config['n_offsets'],
+        sigma=config['sigma'],
+        seed=config['random_seed_base']
+    )
+    verify_rp2_topology(X_verify, save_path=os.path.join(save_dir, 'topology_verification.png'))
     
     # Run trials
     all_trials = []
@@ -657,14 +621,6 @@ def compute_summary_statistics(
     summary['orientability']['n_coboundary_failed'] = n_coboundary_failed
     summary['orientability']['n_different_across'] = n_different_across
     
-    # Retry statistics
-    retry_counts = [t.get('retry_info', {}).get('n_retries', 0) for t in trials]
-    summary['retry'] = {
-        'total_retries': sum(retry_counts),
-        'trials_with_retries': sum(1 for r in retry_counts if r > 0),
-        'retry_counts': retry_counts,
-    }
-    
     return summary
 
 
@@ -674,9 +630,9 @@ def print_summary(summary: Dict, config: Dict):
     print(f"SUMMARY: {config['manifold_name']} ({config['n_trials']} trials)")
     print(f"{'='*60}")
     
-    print(f"\n--- Theoretical Metrics (mean Â± std) ---")
+    print(f"\n--- Theoretical Metrics (mean ± std) ---")
     for name, stats in summary['theoretical'].items():
-        print(f"  {name:20s}: {stats['mean']:.6f} Â± {stats['std']:.6f}")
+        print(f"  {name:20s}: {stats['mean']:.6f} ± {stats['std']:.6f}")
     
     print(f"\n--- Orientability Detection ---")
     print(f"  Ground truth:           {'Orientable' if config['true_orientable'] else 'Non-orientable'}")
@@ -690,12 +646,8 @@ def print_summary(summary: Dict, config: Dict):
     print(f"    Coboundary test failed:    {summary['orientability']['n_coboundary_failed']}/{config['n_trials']}")
     print(f"    Opposite signs in overlap: {summary['orientability']['n_different_across']}/{config['n_trials']}")
     
-    # Retry statistics
-    if 'retry' in summary:
-        print(f"\n--- Retry Statistics ---")
-        print(f"  Total retries:        {summary['retry']['total_retries']}")
-        print(f"  Trials with retries:  {summary['retry']['trials_with_retries']}/{config['n_trials']}")
-        print(f"  Per-trial retries:    {summary['retry']['retry_counts']}")
+    print(f"\n  Note: ℝP² non-orientability may be detected via either method")
+    print(f"        depending on the cover structure.")
     
     print(f"\n{'='*60}\n")
 
@@ -714,9 +666,9 @@ def save_latex_table(summary: Dict, config: Dict, filename: str):
         # Metrics table
         f.write("\\begin{table}[h]\n")
         f.write("\\centering\n")
-        f.write(f"\\caption{{Theoretical metrics for {config['manifold_name']} "
+        f.write(f"\\caption{{Theoretical metrics for $\\mathbb{{RP}}^2$ (line patches) "
                 f"(mean $\\pm$ std over {config['n_trials']} trials)}}\n")
-        f.write("\\label{tab:" + config['manifold'].lower() + "_metrics}\n")
+        f.write("\\label{tab:rp2_metrics}\n")
         f.write("\\begin{tabular}{lcc}\n")
         f.write("\\toprule\n")
         f.write("Metric & Value & Paper Definition \\\\\n")
@@ -745,7 +697,7 @@ def save_latex_table(summary: Dict, config: Dict, filename: str):
         n_trials = summary['orientability']['n_trials']
         
         f.write(f"% Orientability detection accuracy: {acc:.1f}\\% ({n_correct}/{n_trials})\n")
-        f.write(f"% Ground truth: {'Orientable' if config['true_orientable'] else 'Non-orientable'}\n")
+        f.write(f"% Ground truth: Non-orientable (RP2)\n")
         f.write(f"% Coboundary failed: {summary['orientability']['n_coboundary_failed']}/{n_trials}\n")
         f.write(f"% Opposite signs: {summary['orientability']['n_different_across']}/{n_trials}\n")
 
@@ -763,41 +715,47 @@ def run_single_visualization(config: Dict = None, seed: int = 42):
     
     np.random.seed(seed)
     
-    # Sample data
-    print("Generating Klein bottle point cloud...")
-    points = generate_klein_bottle(
-        config['n_points'],
-        m=config['klein_m'],
-        n=config['klein_n'],
+    print("="*60)
+    print("ℝP² (LINE PATCHES) SINGLE VISUALIZATION")
+    print("="*60)
+    
+    # Generate data
+    print("\n1. GENERATING LINE PATCHES")
+    print("-"*40)
+    
+    X = generate_line_patches(
+        patch_dim=config['patch_dim'],
+        n_angles=config['n_angles'],
+        n_offsets=config['n_offsets'],
+        sigma=config['sigma'],
         seed=seed
     )
     
-    print(f"  Points shape: {points.shape}")
-    print(f"  Ambient dimension: {points.shape[1]}")
+    print(f"Generated {len(X)} line patches")
+    print(f"Dimension: {X.shape[1]} (={config['patch_dim']}×{config['patch_dim']})")
     
-    # Visualize (project to 3D)
-    fig = plt.figure(figsize=(12, 5))
-    
-    ax = fig.add_subplot(121, projection='3d')
-    ax.scatter(points[:, 0], points[:, 1], points[:, 2],
-               c=points[:, 3], cmap='viridis', s=2, alpha=0.6)
-    ax.set_title('Klein Bottle (xâ‚, xâ‚‚, xâ‚ƒ)')
-    
-    ax2 = fig.add_subplot(122, projection='3d')
-    ax2.scatter(points[:, 0], points[:, 1], points[:, 3],
-                c=points[:, 2], cmap='plasma', s=2, alpha=0.6)
-    ax2.set_title('Klein Bottle (xâ‚, xâ‚‚, xâ‚„)')
-    
-    plt.tight_layout()
+    # Visualize patches
+    fig = plt.figure(figsize=(8, 8))
+    PlotUtils.plot_patches(X[:256], zoom=2)
+    plt.gca().set_facecolor((0.7, 0.7, 0.7))
+    plt.title("Line Patches (ℝP² topology)")
     plt.show()
     
+    # Verify topology
+    print("\n2. VERIFYING ℝP² TOPOLOGY")
+    print("-"*40)
+    verify_rp2_topology(X)
+    
     # Create cover
-    print("\nCreating landmark-based cover...")
-    subset_assignments, points_reordered = create_landmark_cover(
-        points,
+    print("\n3. CREATING COVER")
+    print("-"*40)
+    
+    subset_assignments, X_ordered, proj_coords, perm, dist_mat = create_projective_cover(
+        X,
         n_charts=config['n_charts'],
-        percentile=config['cover_percentile'],
-        n_neighbors=config['n_neighbors_geodesic']
+        n_landmarks=config['n_landmarks'],
+        n_neighbors=config['n_neighbors_geodesic'],
+        threshold_percentile=config['threshold_percentile']
     )
     n_charts = len(subset_assignments)
     
@@ -805,19 +763,35 @@ def run_single_visualization(config: Dict = None, seed: int = 42):
     for i, indices in enumerate(subset_assignments):
         print(f"  Chart {i}: {len(indices)} points")
     
+    # Visualize projective coordinates
+    print("\nVisualizing projective coordinates...")
+    try:
+        subsample_idx = GeometryUtils.get_greedy_perm_pc(proj_coords, 300)['perm']
+        stereo = ProjectiveMapUtils.get_stereo_proj_codim1(proj_coords[subsample_idx])
+        
+        plt.figure(figsize=(8, 8))
+        PlotUtils.imscatter(stereo, X[perm][subsample_idx], 10)
+        PlotUtils.plot_proj_boundary()
+        plt.title("Line patches in projective coordinates")
+        plt.show()
+    except Exception as e:
+        print(f"  Projective visualization failed: {e}")
+    
     # Train
+    print("\n4. TRAINING ATLAS AUTOENCODER")
+    print("-"*40)
+    
     import tensorflow as tf
     tf.random.set_seed(seed)
     
     system = AtlasAutoencoder(
-        data=points_reordered,
+        data=X_ordered,
         n_charts=n_charts,
         subset_assignments=subset_assignments,
         latent_dim=config['latent_dim'],
         hidden_dims=config['hidden_dims']
     )
     
-    print("\nTraining Atlas Autoencoder...")
     system.fit(
         epochs=config['epochs'],
         batch_size=config['batch_size'],
@@ -827,15 +801,18 @@ def run_single_visualization(config: Dict = None, seed: int = 42):
     )
     
     # Visualize transitions
-    print("\nVisualizing transition maps...")
+    print("\n5. VISUALIZING TRANSITIONS")
+    print("-"*40)
     plot_all_transitions(system)
     plt.show()
     
     # Run orientability detection
-    print("\nRunning orientability detection...")
+    print("\n6. ORIENTABILITY DETECTION")
+    print("-"*40)
+    
     result = check_orientability(
         system=system,
-        points=points_reordered,
+        points=X_ordered,
         subset_assignments=subset_assignments,
         eps_cluster=config['eps_cluster'],
         min_points=config['min_points'],
@@ -856,16 +833,12 @@ def run_single_visualization(config: Dict = None, seed: int = 42):
 if __name__ == "__main__":
     import argparse
     
-    parser = argparse.ArgumentParser(description='Klein bottle orientability experiment')
+    parser = argparse.ArgumentParser(description='ℝP² (line patches) orientability experiment')
     parser.add_argument('--trials', type=int, default=5, help='Number of trials')
-    parser.add_argument('--epochs', type=int, default=4000, help='Training epochs')
-    parser.add_argument('--charts', type=int, default=8, help='Number of charts')
+    parser.add_argument('--epochs', type=int, default=1000, help='Training epochs')
+    parser.add_argument('--charts', type=int, default=10, help='Number of charts')
     parser.add_argument('--single', action='store_true', help='Run single visualization only')
     parser.add_argument('--output', type=str, default=None, help='Output directory')
-    parser.add_argument('--threshold', type=float, default=0.15,
-                        help='Max acceptable sup-ε for reconstruction quality')
-    parser.add_argument('--max-retries', type=int, default=3,
-                        help='Maximum retry attempts per trial')
     
     args = parser.parse_args()
     
@@ -873,8 +846,6 @@ if __name__ == "__main__":
     config['n_trials'] = args.trials
     config['epochs'] = args.epochs
     config['n_charts'] = args.charts
-    config['recon_threshold'] = args.threshold
-    config['max_retries'] = args.max_retries
     
     if args.single:
         # Single run with visualization
@@ -884,4 +855,4 @@ if __name__ == "__main__":
         results = run_experiment(config, save_dir=args.output)
         
         print("\nExperiment complete!")
-        print(f"Results saved to: {args.output or 'results_Klein_<timestamp>'}")
+        print(f"Results saved to: {args.output or 'results_RP2_<timestamp>'}")

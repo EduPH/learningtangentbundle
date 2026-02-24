@@ -290,24 +290,6 @@ class AtlasAutoencoder:
         recon = autoencoder(x)
         return tf.reduce_mean(tf.reduce_sum((x - recon) ** 2, axis=1))
 
-    def smoothness_loss(
-        self,
-        encoder: tf.keras.Model,
-        x: tf.Tensor,
-        epsilon: float = 1e-2,
-    ) -> tf.Tensor:
-        """
-        Smoothness regularization: nearby points should have similar encodings.
-        
-        L_smooth = E[||E(x) - E(x + ε)||²]
-        
-        Encourages the encoder to be Lipschitz continuous.
-        """
-        noise = tf.random.normal(tf.shape(x), stddev=epsilon)
-        z1 = encoder(x)
-        z2 = encoder(x + noise)
-        return tf.reduce_mean(tf.reduce_sum((z1 - z2) ** 2, axis=1))
-
     def jacobian_regularity_loss(
         self,
         encoder: tf.keras.Model,
@@ -719,7 +701,6 @@ class AtlasAutoencoder:
     def train_step(
         self,
         batches: List[Optional[tf.Tensor]],
-        lambda_smooth: float,
         lambda_jac: float,
         lambda_cocycle: float,
     ) -> Dict[str, tf.Tensor]:
@@ -753,16 +734,14 @@ class AtlasAutoencoder:
             with tf.GradientTape() as tape:
                 # Standard losses
                 L_rec = self.reconstruction_loss(ae, x)
-                L_smooth = self.smoothness_loss(ae.encoder, x)
                 L_jac = self.jacobian_regularity_loss(ae.encoder, x)
 
-                loss = L_rec + lambda_smooth * L_smooth + lambda_jac * L_jac
+                loss = L_rec + lambda_jac * L_jac
 
             grads = tape.gradient(loss, ae.trainable_variables)
             opt.apply_gradients(zip(grads, ae.trainable_variables))
 
             losses[f"recon_{i}"] = L_rec
-            losses[f"smooth_{i}"] = L_smooth
             losses[f"jac_{i}"] = L_jac
 
             # -----------------------------
@@ -921,7 +900,6 @@ class AtlasAutoencoder:
         self,
         epochs: int = 100,
         batch_size: int = 32,
-        lambda_smooth: float = 0.1,
         lambda_jac: float = 0.01,
         lambda_cocycle: float = 0.1,
         verbose: bool = True,
@@ -932,7 +910,6 @@ class AtlasAutoencoder:
         Args:
             epochs: Number of training epochs
             batch_size: Batch size for training
-            lambda_smooth: Weight for smoothness regularization
             lambda_jac: Weight for Jacobian regularity loss
             lambda_cocycle: Weight for cocycle consistency loss
             verbose: Whether to print training progress
@@ -975,7 +952,6 @@ class AtlasAutoencoder:
 
                 losses = self.train_step(
                     batch_data,
-                    lambda_smooth=lambda_smooth,
                     lambda_jac=lambda_jac,
                     lambda_cocycle=lambda_cocycle,
                 )
@@ -1003,7 +979,7 @@ class AtlasAutoencoder:
     
         # --- Standard per-chart losses ---
         for key in sorted(avg_losses.keys()):
-            if key.startswith("recon_") or key.startswith("smooth_") or key.startswith("jac_"):
+            if key.startswith("recon_") or key.startswith("jac_"):
                 print(f"  {key:12s}: {avg_losses[key]:.6f}")
     
         # --- Cocycle loss ---
