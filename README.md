@@ -14,7 +14,7 @@ Given a point cloud sampled from a manifold $M$:
 
 1. **Learns an atlas** $\mathcal{A} = \{(U_i, E_i, D_i)\}$ of local autoencoders on an open cover $\{U_i\}$.
 2. **Extracts transition maps** $T_{ji} = E_j \circ D_i$ between overlapping charts.
-3. **Computes the Jacobian sign cocycle** $\omega_{ji}(x) = \operatorname{sign}(\det\, d(T_{ji})_{E_i(x)})$.
+3. **Computes the Jacobian sign cocycle** $\omega_{ji}(x) = sign(\det\, d(T_{ji})_{E_i(x)})$.
 4. **Tests orientability** by checking whether $\omega$ is a coboundary in $C^1(\mathcal{U}; \mathbb{Z}/2)$.
 
 ## Repository Structure
@@ -227,6 +227,3 @@ If you use this code, please cite:
 }
 ```
 
-## License
-
-[Specify your license here]
