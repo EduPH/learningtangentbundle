@@ -1,0 +1,558 @@
+{
+  "config": {
+    "manifold": "S2",
+    "manifold_name": "Sphere",
+    "true_orientable": true,
+    "intrinsic_dim": 2,
+    "ambient_dim": 3,
+    "n_points": 1000,
+    "cover_type": "tetrahedral",
+    "cover_epsilon": 0.3,
+    "latent_dim": 2,
+    "hidden_dims": [
+      32,
+      16
+    ],
+    "epochs": 1000,
+    "batch_size": 64,
+    "lambda_smooth": 0.0,
+    "lambda_jac": 0.0,
+    "lambda_cocycle": 0.0,
+    "eps_cluster": 1.0,
+    "min_points": 20,
+    "n_trials": 5,
+    "random_seed_base": 42
+  },
+  "trials": [
+    {
+      "trial_idx": 0,
+      "seed": 42,
+      "config": {
+        "manifold": "S2",
+        "manifold_name": "Sphere",
+        "true_orientable": true,
+        "intrinsic_dim": 2,
+        "ambient_dim": 3,
+        "n_points": 1000,
+        "cover_type": "tetrahedral",
+        "cover_epsilon": 0.3,
+        "latent_dim": 2,
+        "hidden_dims": [
+          32,
+          16
+        ],
+        "epochs": 1000,
+        "batch_size": 64,
+        "lambda_smooth": 0.0,
+        "lambda_jac": 0.0,
+        "lambda_cocycle": 0.0,
+        "eps_cluster": 1.0,
+        "min_points": 20,
+        "n_trials": 5,
+        "random_seed_base": 42
+      },
+      "per_chart": {
+        "varepsilon": [
+          0.01753591187298298,
+          0.021368643268942833,
+          0.018167519941926003,
+          0.020351849496364594
+        ],
+        "varepsilon_mean": [
+          0.007405727636069059,
+          0.007375793997198343,
+          0.004727757070213556,
+          0.007545154541730881
+        ],
+        "eta": [
+          0.2773760259151459,
+          0.4021252393722534,
+          0.26866137981414795,
+          0.3976157605648041
+        ],
+        "sigma_min_enc": [
+          0.6657976508140564,
+          0.6908445358276367,
+          0.6475503444671631,
+          0.7195144891738892
+        ]
+      },
+      "theoretical": {
+        "varepsilon": 0.021368643268942833,
+        "varepsilon_mean": 0.00676360831130296,
+        "eta": 0.4021252393722534,
+        "delta": 0.11822846531867981,
+        "delta_mean": 1.4172426462173462,
+        "cocycle_error": 0.007666323333978653,
+        "sigma_min_enc": 0.6475503444671631
+      },
+      "cover": {
+        "n_charts": 4,
+        "chart_sizes": [
+          665,
+          646,
+          629,
+          658
+        ],
+        "n_pairwise_overlaps": 6,
+        "n_triple_overlaps": 4
+      },
+      "orientability": {
+        "detected_orientable": true,
+        "correct_detection": true,
+        "cocycle_verified": true,
+        "coboundary_passed": true,
+        "has_mixed_within": false,
+        "has_different_across": false,
+        "n_chart_components": 4,
+        "n_overlaps": 6
+      }
+    },
+    {
+      "trial_idx": 1,
+      "seed": 43,
+      "config": {
+        "manifold": "S2",
+        "manifold_name": "Sphere",
+        "true_orientable": true,
+        "intrinsic_dim": 2,
+        "ambient_dim": 3,
+        "n_points": 1000,
+        "cover_type": "tetrahedral",
+        "cover_epsilon": 0.3,
+        "latent_dim": 2,
+        "hidden_dims": [
+          32,
+          16
+        ],
+        "epochs": 1000,
+        "batch_size": 64,
+        "lambda_smooth": 0.0,
+        "lambda_jac": 0.0,
+        "lambda_cocycle": 0.0,
+        "eps_cluster": 1.0,
+        "min_points": 20,
+        "n_trials": 5,
+        "random_seed_base": 42
+      },
+      "per_chart": {
+        "varepsilon": [
+          0.02272805944085121,
+          0.01865392178297043,
+          0.01746908761560917,
+          0.033809296786785126
+        ],
+        "varepsilon_mean": [
+          0.00894126296043396,
+          0.006152663845568895,
+          0.005915062967687845,
+          0.010629474185407162
+        ],
+        "eta": [
+          0.23407891392707825,
+          0.3890104591846466,
+          0.26515498757362366,
+          0.6293432116508484
+        ],
+        "sigma_min_enc": [
+          0.7732083201408386,
+          0.7670740485191345,
+          0.7551020383834839,
+          0.7984726428985596
+        ]
+      },
+      "theoretical": {
+        "varepsilon": 0.033809296786785126,
+        "varepsilon_mean": 0.007909615989774466,
+        "eta": 0.6293432116508484,
+        "delta": 0.10387171804904938,
+        "delta_mean": 1.1953829526901245,
+        "cocycle_error": 0.009297286160290241,
+        "sigma_min_enc": 0.7551020383834839
+      },
+      "cover": {
+        "n_charts": 4,
+        "chart_sizes": [
+          675,
+          648,
+          656,
+          648
+        ],
+        "n_pairwise_overlaps": 6,
+        "n_triple_overlaps": 4
+      },
+      "orientability": {
+        "detected_orientable": true,
+        "correct_detection": true,
+        "cocycle_verified": true,
+        "coboundary_passed": true,
+        "has_mixed_within": false,
+        "has_different_across": false,
+        "n_chart_components": 4,
+        "n_overlaps": 6
+      }
+    },
+    {
+      "trial_idx": 2,
+      "seed": 44,
+      "config": {
+        "manifold": "S2",
+        "manifold_name": "Sphere",
+        "true_orientable": true,
+        "intrinsic_dim": 2,
+        "ambient_dim": 3,
+        "n_points": 1000,
+        "cover_type": "tetrahedral",
+        "cover_epsilon": 0.3,
+        "latent_dim": 2,
+        "hidden_dims": [
+          32,
+          16
+        ],
+        "epochs": 1000,
+        "batch_size": 64,
+        "lambda_smooth": 0.0,
+        "lambda_jac": 0.0,
+        "lambda_cocycle": 0.0,
+        "eps_cluster": 1.0,
+        "min_points": 20,
+        "n_trials": 5,
+        "random_seed_base": 42
+      },
+      "per_chart": {
+        "varepsilon": [
+          0.03137671574950218,
+          0.016955917701125145,
+          0.012902263551950455,
+          0.029905419796705246
+        ],
+        "varepsilon_mean": [
+          0.005577270872890949,
+          0.004933448974043131,
+          0.004297372419387102,
+          0.009481128305196762
+        ],
+        "eta": [
+          0.5249046087265015,
+          0.24499374628067017,
+          0.20932956039905548,
+          0.5499106645584106
+        ],
+        "sigma_min_enc": [
+          0.6652911305427551,
+          0.7547659873962402,
+          0.6781561970710754,
+          0.8220068216323853
+        ]
+      },
+      "theoretical": {
+        "varepsilon": 0.03137671574950218,
+        "varepsilon_mean": 0.006072305142879486,
+        "eta": 0.5499106645584106,
+        "delta": 0.07951293885707855,
+        "delta_mean": 1.6616806983947754,
+        "cocycle_error": 0.006445774342864752,
+        "sigma_min_enc": 0.6652911305427551
+      },
+      "cover": {
+        "n_charts": 4,
+        "chart_sizes": [
+          676,
+          669,
+          659,
+          646
+        ],
+        "n_pairwise_overlaps": 6,
+        "n_triple_overlaps": 4
+      },
+      "orientability": {
+        "detected_orientable": true,
+        "correct_detection": true,
+        "cocycle_verified": true,
+        "coboundary_passed": true,
+        "has_mixed_within": false,
+        "has_different_across": false,
+        "n_chart_components": 4,
+        "n_overlaps": 6
+      }
+    },
+    {
+      "trial_idx": 3,
+      "seed": 45,
+      "config": {
+        "manifold": "S2",
+        "manifold_name": "Sphere",
+        "true_orientable": true,
+        "intrinsic_dim": 2,
+        "ambient_dim": 3,
+        "n_points": 1000,
+        "cover_type": "tetrahedral",
+        "cover_epsilon": 0.3,
+        "latent_dim": 2,
+        "hidden_dims": [
+          32,
+          16
+        ],
+        "epochs": 1000,
+        "batch_size": 64,
+        "lambda_smooth": 0.0,
+        "lambda_jac": 0.0,
+        "lambda_cocycle": 0.0,
+        "eps_cluster": 1.0,
+        "min_points": 20,
+        "n_trials": 5,
+        "random_seed_base": 42
+      },
+      "per_chart": {
+        "varepsilon": [
+          0.027539247646927834,
+          0.01486220583319664,
+          0.04479599371552467,
+          0.021067187190055847
+        ],
+        "varepsilon_mean": [
+          0.0068303863517940044,
+          0.005806760862469673,
+          0.009424213320016861,
+          0.008064723573625088
+        ],
+        "eta": [
+          0.2935757637023926,
+          0.372657835483551,
+          0.8352625370025635,
+          0.5360984802246094
+        ],
+        "sigma_min_enc": [
+          0.6036490797996521,
+          0.6531484127044678,
+          0.7710345983505249,
+          0.7332139015197754
+        ]
+      },
+      "theoretical": {
+        "varepsilon": 0.04479599371552467,
+        "varepsilon_mean": 0.007531521026976407,
+        "eta": 0.8352625370025635,
+        "delta": 0.11566523462533951,
+        "delta_mean": 1.247389793395996,
+        "cocycle_error": 0.008155719377100468,
+        "sigma_min_enc": 0.6036490797996521
+      },
+      "cover": {
+        "n_charts": 4,
+        "chart_sizes": [
+          642,
+          625,
+          653,
+          667
+        ],
+        "n_pairwise_overlaps": 6,
+        "n_triple_overlaps": 4
+      },
+      "orientability": {
+        "detected_orientable": true,
+        "correct_detection": true,
+        "cocycle_verified": true,
+        "coboundary_passed": true,
+        "has_mixed_within": false,
+        "has_different_across": false,
+        "n_chart_components": 4,
+        "n_overlaps": 6
+      }
+    },
+    {
+      "trial_idx": 4,
+      "seed": 46,
+      "config": {
+        "manifold": "S2",
+        "manifold_name": "Sphere",
+        "true_orientable": true,
+        "intrinsic_dim": 2,
+        "ambient_dim": 3,
+        "n_points": 1000,
+        "cover_type": "tetrahedral",
+        "cover_epsilon": 0.3,
+        "latent_dim": 2,
+        "hidden_dims": [
+          32,
+          16
+        ],
+        "epochs": 1000,
+        "batch_size": 64,
+        "lambda_smooth": 0.0,
+        "lambda_jac": 0.0,
+        "lambda_cocycle": 0.0,
+        "eps_cluster": 1.0,
+        "min_points": 20,
+        "n_trials": 5,
+        "random_seed_base": 42
+      },
+      "per_chart": {
+        "varepsilon": [
+          0.022369906306266785,
+          0.028423253446817398,
+          0.016933966428041458,
+          0.018953580409288406
+        ],
+        "varepsilon_mean": [
+          0.00898842141032219,
+          0.006876668892800808,
+          0.004460662603378296,
+          0.00535461213439703
+        ],
+        "eta": [
+          0.2699686288833618,
+          0.291977196931839,
+          0.27938467264175415,
+          0.2907882332801819
+        ],
+        "sigma_min_enc": [
+          0.7684780955314636,
+          0.7064119577407837,
+          0.7164568305015564,
+          0.6264763474464417
+        ]
+      },
+      "theoretical": {
+        "varepsilon": 0.028423253446817398,
+        "varepsilon_mean": 0.006420091260224581,
+        "eta": 0.291977196931839,
+        "delta": 0.08531424403190613,
+        "delta_mean": 1.3225640058517456,
+        "cocycle_error": 0.008968483656644821,
+        "sigma_min_enc": 0.6264763474464417
+      },
+      "cover": {
+        "n_charts": 4,
+        "chart_sizes": [
+          647,
+          655,
+          634,
+          636
+        ],
+        "n_pairwise_overlaps": 6,
+        "n_triple_overlaps": 4
+      },
+      "orientability": {
+        "detected_orientable": true,
+        "correct_detection": true,
+        "cocycle_verified": true,
+        "coboundary_passed": true,
+        "has_mixed_within": false,
+        "has_different_across": false,
+        "n_chart_components": 4,
+        "n_overlaps": 6
+      }
+    }
+  ],
+  "summary": {
+    "theoretical": {
+      "varepsilon": {
+        "mean": 0.03195478059351444,
+        "std": 0.0076577820700568415,
+        "min": 0.021368643268942833,
+        "max": 0.04479599371552467,
+        "values": [
+          0.021368643268942833,
+          0.033809296786785126,
+          0.03137671574950218,
+          0.04479599371552467,
+          0.028423253446817398
+        ]
+      },
+      "varepsilon_mean": {
+        "mean": 0.00693942834623158,
+        "std": 0.0006847428933039074,
+        "min": 0.006072305142879486,
+        "max": 0.007909615989774466,
+        "values": [
+          0.00676360831130296,
+          0.007909615989774466,
+          0.006072305142879486,
+          0.007531521026976407,
+          0.006420091260224581
+        ]
+      },
+      "eta": {
+        "mean": 0.5417237699031829,
+        "std": 0.18749415993241947,
+        "min": 0.291977196931839,
+        "max": 0.8352625370025635,
+        "values": [
+          0.4021252393722534,
+          0.6293432116508484,
+          0.5499106645584106,
+          0.8352625370025635,
+          0.291977196931839
+        ]
+      },
+      "delta": {
+        "mean": 0.10051852017641068,
+        "std": 0.015663419238174436,
+        "min": 0.07951293885707855,
+        "max": 0.11822846531867981,
+        "values": [
+          0.11822846531867981,
+          0.10387171804904938,
+          0.07951293885707855,
+          0.11566523462533951,
+          0.08531424403190613
+        ]
+      },
+      "delta_mean": {
+        "mean": 1.3688520193099976,
+        "std": 0.16436389971942575,
+        "min": 1.1953829526901245,
+        "max": 1.6616806983947754,
+        "values": [
+          1.4172426462173462,
+          1.1953829526901245,
+          1.6616806983947754,
+          1.247389793395996,
+          1.3225640058517456
+        ]
+      },
+      "cocycle_error": {
+        "mean": 0.008106717374175787,
+        "std": 0.001011451928690931,
+        "min": 0.006445774342864752,
+        "max": 0.009297286160290241,
+        "values": [
+          0.007666323333978653,
+          0.009297286160290241,
+          0.006445774342864752,
+          0.008155719377100468,
+          0.008968483656644821
+        ]
+      },
+      "sigma_min_enc": {
+        "mean": 0.6596137881278992,
+        "std": 0.052011351414681266,
+        "min": 0.6036490797996521,
+        "max": 0.7551020383834839,
+        "values": [
+          0.6475503444671631,
+          0.7551020383834839,
+          0.6652911305427551,
+          0.6036490797996521,
+          0.6264763474464417
+        ]
+      }
+    },
+    "orientability": {
+      "accuracy": 1.0,
+      "n_correct": 5,
+      "n_trials": 5,
+      "all_cocycle_verified": true,
+      "all_coboundary_passed": true,
+      "detected_orientable": [
+        true,
+        true,
+        true,
+        true,
+        true
+      ]
+    }
+  },
+  "timestamp": "2026-02-19T11:50:16.766820"
+}
