@@ -21,14 +21,13 @@ Given a point cloud sampled from a manifold $M$:
 
 ```
 .
-├── atlasautoencoder.py        # Core library: LocalAutoencoder, AtlasAutoencoder, training, metrics, visualization
+├── atlasautoencoder.py        # Core library: LocalAutoencoder, AtlasAutoencoder, training, metrics, visualisation
 ├── orientability.py           # Orientability detection: sign cocycle, coboundary test, connected component handling
 ├── sphere_good_cover.py       # Good cover construction for S² (tetrahedral cover, stereographic projection)
 ├── Sphere.py                  # Experiment: S² (orientable, expected w₁ = 0)
 ├── mobius.py                  # Experiment: Möbius band (non-orientable, expected w₁ ≠ 0)
 ├── Klein_bottle.py            # Experiment: Klein bottle in ℝ⁴ (non-orientable, expected w₁ ≠ 0)
 ├── line_patch_images.py       # Experiment: ℝP² via line patch images (non-orientable, expected w₁ ≠ 0)
-├── requirements.txt           # Python dependencies
 └── README.md
 ```
 
@@ -53,11 +52,11 @@ When reconstruction is exact ($D_i \circ E_i = Id$), these satisfy the **cocycle
 
 $$T_{ki} = T_{kj} \circ T_{ji} \quad \text{on } U_i \cap U_j \cap U_k.$$
 
-This is not imposed as a regularization term — it emerges algebraically from reconstruction consistency alone.
+This is not imposed as a regularisation term — it emerges algebraically from reconstruction consistency alone.
 
-### Linearized Transition Maps and Tangent Bundle
+### Linearised Transition Maps and Tangent Bundle
 
-The **linearized transition maps** $g_{ji}(x) = d(T_{ji})_{E_i(x)} \in GL_d(\mathbb{R})$ define a $GL_d(\mathbb{R})$-cocycle. When $d = \dim M$ and the atlas is compatible with the smooth structure, the resulting vector bundle $\mathcal{T}_{\mathcal{A}}$ is isomorphic to the tangent bundle $TM$.
+The **linearised transition maps** $g_{ji}(x) = d(T_{ji})_{E_i(x)} \in GL_d(\mathbb{R})$ define a $GL_d(\mathbb{R})$-cocycle. When $d = \dim M$ and the atlas is compatible with the smooth structure, the resulting vector bundle $\mathcal{T}_{\mathcal{A}}$ is isomorphic to the tangent bundle $TM$.
 
 ### Orientability via the Sign Cocycle
 
@@ -227,3 +226,6 @@ If you use this code, please cite:
 }
 ```
 
+## Use of AI
+
+Claude was used extensively for code and repository documentation.
