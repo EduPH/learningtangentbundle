@@ -219,10 +219,14 @@ When these conditions fail, the trial has not converged to a valid atlas and its
 If you use this code, please cite:
 
 ```bibtex
-@article{paluzo2025autoencoder,
-  title={Learning Tangent Bundles and Characteristic Classes with Autoencoder Atlases},
-  author={Paluzo-Hidalgo, Eduardo and Ike, Yuichi},
-  year={2025}
+@misc{paluzohidalgo2026learningtangentbundlescharacteristic,
+      title={Learning Tangent Bundles and Characteristic Classes with Autoencoder Atlases}, 
+      author={Eduardo Paluzo-Hidalgo and Yuichi Ike},
+      year={2026},
+      eprint={2602.22873},
+      archivePrefix={arXiv},
+      primaryClass={math.AT},
+      url={https://arxiv.org/abs/2602.22873}, 
 }
 ```
 
