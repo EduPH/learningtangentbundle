@@ -1,6 +1,6 @@
 # Autoencoder Atlases: Learning Tangent Bundles and Characteristic Classes
 
-Code for the paper *"Learning Tangent Bundles and Characteristic Classes with Autoencoder Atlases"* by Eduardo Paluzo-Hidalgo and Yuichi Ike.
+Code for the paper *"Learning Tangent Bundles and Characteristic Classes with Autoencoder Atlases"* by Eduardo Paluzo-Hidalgo and Yuichi Ike (Preprint [ArXiV](https://arxiv.org/abs/2602.22873)).
 
 ## Overview
 
