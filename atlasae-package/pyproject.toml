@@ -1,0 +1,41 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "atlasae"
+version = "0.1.0"
+description = "Autoencoder atlases: learned charts, tangent bundles, and Stiefel-Whitney classes from data"
+readme = "README.md"
+license = { file = "LICENSE" }
+authors = [
+    { name = "Eduardo Paluzo-Hidalgo", email = "epaluzo@us.es" },
+    { name = "Yuichi Ike" },
+]
+requires-python = ">=3.10"
+keywords = [
+    "manifold learning", "autoencoder", "topological data analysis",
+    "orientability", "Stiefel-Whitney classes", "vector bundles",
+]
+classifiers = [
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Topic :: Scientific/Engineering :: Mathematics",
+]
+dependencies = [
+    "numpy",
+    "scipy",
+    "scikit-learn",
+    "matplotlib",
+    "tensorflow>=2.13",
+]
+
+[project.optional-dependencies]
+tda = ["dreimac", "ripser", "persim"]  # cover constructions using persistent cohomology
+
+[project.urls]
+Paper-repository = "https://github.com/EduPH/learningtangentbundle"
+
+[tool.setuptools.packages.find]
+where = ["src"]

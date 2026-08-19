@@ -1,0 +1,25 @@
+{
+  "title": "atlasae: autoencoder atlases, tangent bundles, and Stiefel-Whitney classes from data",
+  "description": "A collection of locally trained autoencoders is treated as a learned atlas on a data manifold. The linearised transition maps define a vector bundle whose first Stiefel-Whitney class detects orientability, computed by two-colouring the signed nerve of the cover, together with a sample-computable certificate (a sampling-density margin proving the transition-determinant signs constant between the sample points) that says when the computed invariant can be trusted. Companion software to the paper 'Learning Tangent Bundles and Characteristic Classes with Autoencoder Atlases' by E. Paluzo-Hidalgo and Y. Ike.",
+  "creators": [
+    {
+      "name": "Paluzo-Hidalgo, Eduardo",
+      "affiliation": "Universidad de Sevilla"
+    },
+    {
+      "name": "Ike, Yuichi",
+      "affiliation": "Kyushu University"
+    }
+  ],
+  "license": "MIT",
+  "upload_type": "software",
+  "keywords": [
+    "manifold learning",
+    "autoencoder",
+    "topological data analysis",
+    "orientability",
+    "Stiefel-Whitney classes",
+    "vector bundles",
+    "characteristic classes"
+  ]
+}

@@ -1,0 +1,103 @@
+Metadata-Version: 2.4
+Name: atlasae
+Version: 0.1.0
+Summary: Autoencoder atlases: learned charts, tangent bundles, and Stiefel-Whitney classes from data
+Author: Yuichi Ike
+Author-email: Eduardo Paluzo-Hidalgo <epaluzo@us.es>
+License: MIT License
+        
+        Copyright (c) 2026 EduPH
+        
+        Permission is hereby granted, free of charge, to any person obtaining a copy
+        of this software and associated documentation files (the "Software"), to deal
+        in the Software without restriction, including without limitation the rights
+        to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+        copies of the Software, and to permit persons to whom the Software is
+        furnished to do so, subject to the following conditions:
+        
+        The above copyright notice and this permission notice shall be included in all
+        copies or substantial portions of the Software.
+        
+        THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+        IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+        FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+        AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+        LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+        OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+        SOFTWARE.
+        
+Requires-Python: >=3.10
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: numpy
+Requires-Dist: scipy
+Requires-Dist: scikit-learn
+Requires-Dist: matplotlib
+Requires-Dist: tensorflow>=2.13
+Provides-Extra: tda
+Requires-Dist: dreimac; extra == "tda"
+Requires-Dist: ripser; extra == "tda"
+Requires-Dist: persim; extra == "tda"
+Dynamic: license-file
+
+# atlasae — Learning Tangent Bundles and Characteristic Classes with Autoencoder Atlases
+
+Code for the paper *"Learning Tangent Bundles and Characteristic Classes with
+Autoencoder Atlases"* (E. Paluzo-Hidalgo, Y. Ike). A collection of locally
+trained autoencoders is treated as a learned atlas on a data manifold; the
+linearised transition maps define a vector bundle whose first Stiefel–Whitney
+class detects orientability, with a stability theory whose hypotheses are
+checked directly on the trained networks.
+
+## Install
+
+```bash
+pip install -e .            # core (numpy/scipy/sklearn/matplotlib/tensorflow)
+pip install -e ".[tda]"     # + dreimac/ripser/persim (some covers, COIL-20)
+```
+
+## Layout
+
+```
+src/atlasae/            the package
+  atlasautoencoder.py     AtlasAutoencoder (charts, losses, metrics)
+  fast_training.py        compiled trainer + certificate-aware protocol
+  eta_true.py             direct tangent-restricted eta (PCA / analytic frames)
+  orientability.py        sign cocycle, cocycle verification, coboundary test
+  *_cover*.py, cover.py   cover constructions
+experiments/            drivers, results, status — see experiments/STATUS.md
+  codim_sweep.py          E1/E2 driver (codimension sweeps, certification)
+  E1_eta_codim/           finished sweep results
+  E2_certificate/ E3_cover_robustness/ E4_real_data/   pending
+  paper_v1/               legacy per-manifold scripts + original paper runs
+Fcom__Atlas_Autoencoders/  LaTeX source of the paper
+docs/                   experiment plan and notes
+```
+
+## Quick start
+
+```python
+import numpy as np
+from atlasae import (AtlasAutoencoder, fast_fit, check_orientability,
+                     pca_tangent_frames, compare_eta, tetrahedral_cover_S2)
+
+pts = np.random.randn(1000, 3); pts /= np.linalg.norm(pts, axis=1, keepdims=True)
+assign = tetrahedral_cover_S2(epsilon=0.3).get_assignments(pts)
+
+system = AtlasAutoencoder(data=pts, n_charts=4, subset_assignments=assign,
+                          latent_dim=2, hidden_dims=[32, 16])
+fast_fit(system, epochs=2000, lambda_jac=0.01, lambda_diff=0.01)
+
+frames = pca_tangent_frames(pts, d=2, k=25)
+eta = compare_eta(system, pts, assign, frames_pca=frames)   # theorem hypotheses
+result = check_orientability(system, pts, assign, eps_cluster=1.0, min_points=20)
+print(eta['eta_pca'], result['is_orientable'])
+```
+
+Sweep driver:
+
+```bash
+cd experiments
+python codim_sweep.py --manifold Klein --dims 4 25 100 --seeds 5
+python codim_sweep.py --plot <results_dir>/results.json
+```

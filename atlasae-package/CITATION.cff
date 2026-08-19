@@ -1,0 +1,29 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite both the software and the paper (see preferred-citation)."
+type: software
+title: "atlasae: autoencoder atlases, tangent bundles, and Stiefel-Whitney classes from data"
+version: 0.1.0
+date-released: "2026-08-17"
+license: MIT
+authors:
+  - family-names: Paluzo-Hidalgo
+    given-names: Eduardo
+    email: epaluzo@us.es
+  - family-names: Ike
+    given-names: Yuichi
+keywords:
+  - manifold learning
+  - autoencoder
+  - topological data analysis
+  - orientability
+  - Stiefel-Whitney classes
+  - vector bundles
+preferred-citation:
+  type: article
+  title: "Learning Tangent Bundles and Characteristic Classes with Autoencoder Atlases"
+  year: 2026
+  authors:
+    - family-names: Paluzo-Hidalgo
+      given-names: Eduardo
+    - family-names: Ike
+      given-names: Yuichi
