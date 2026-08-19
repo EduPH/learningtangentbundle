@@ -111,3 +111,18 @@ If you use the package itself rather than these experiments, cite the software
 too: it is released separately at <https://github.com/EduPH/atlasae>, with a
 Zenodo DOI and `CITATION.cff` metadata. The copy staged here lives in
 [`atlasae-package/`](atlasae-package/).
+
+```
+@software{paluzo_hidalgo_2026_22005040,
+  author       = {Paluzo-Hidalgo, Eduardo},
+  title        = {atlasae: autoencoder atlases, tangent bundles, and
+                   Stiefel-Whitney classes from data
+                  },
+  month        = aug,
+  year         = 2026,
+  publisher    = {Zenodo},
+  version      = {v0.1.0},
+  doi          = {10.5281/zenodo.22005040},
+  url          = {https://doi.org/10.5281/zenodo.22005040},
+}
+```
