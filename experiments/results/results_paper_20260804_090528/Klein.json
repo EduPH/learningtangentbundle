@@ -1,0 +1,23 @@
+[
+ {
+  "manifold": "Klein",
+  "seed": 42,
+  "min_points": 5,
+  "sphere_normalize": false,
+  "pca_dim": null,
+  "varepsilon": 3.7360711097717285,
+  "varepsilon_mean": 1.7737475484609604,
+  "eta_pca": 1.7890115976333618,
+  "eta_true": 1.8135560750961304,
+  "sigma_min_enc": 0.026489034295082092,
+  "delta": 6.043840585334692e-06,
+  "delta_mean": 0.3784094750881195,
+  "cocycle_error": 0.8273109197616577,
+  "n_eta_outliers": 8,
+  "certified": false,
+  "verdict": "undetermined",
+  "correct": null,
+  "n_charts": 8,
+  "atlas_path": "Klein_seed42"
+ }
+]

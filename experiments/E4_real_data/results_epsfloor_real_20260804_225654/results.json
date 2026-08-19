@@ -1,0 +1,110 @@
+[
+  {
+    "axis": "epochs",
+    "value": 2000,
+    "epsilon": 0.40913190444310504,
+    "epsilon_sd": 0.008653325810835014,
+    "n_charts": 19,
+    "seeds": 3,
+    "source": "van Hateren",
+    "epochs": 2000,
+    "core": 3500,
+    "chart": 180
+  },
+  {
+    "axis": "epochs",
+    "value": 4000,
+    "epsilon": 0.41700416803359985,
+    "epsilon_sd": 0.02052566222029838,
+    "n_charts": 19,
+    "seeds": 3,
+    "source": "van Hateren",
+    "epochs": 4000,
+    "core": 3500,
+    "chart": 180
+  },
+  {
+    "axis": "epochs",
+    "value": 8000,
+    "epsilon": 0.41349880894025165,
+    "epsilon_sd": 0.01905666580231073,
+    "n_charts": 19,
+    "seeds": 3,
+    "source": "van Hateren",
+    "epochs": 8000,
+    "core": 3500,
+    "chart": 180
+  },
+  {
+    "axis": "core",
+    "value": 2000,
+    "epsilon": 0.39915621280670166,
+    "epsilon_sd": 0.021007538393045016,
+    "n_charts": 11,
+    "seeds": 3,
+    "source": "van Hateren",
+    "epochs": 4000,
+    "core": 2000,
+    "chart": 180
+  },
+  {
+    "axis": "core",
+    "value": 3500,
+    "epsilon": 0.4207938512166341,
+    "epsilon_sd": 0.022213281486878553,
+    "n_charts": 19,
+    "seeds": 3,
+    "source": "van Hateren",
+    "epochs": 4000,
+    "core": 3500,
+    "chart": 180
+  },
+  {
+    "axis": "core",
+    "value": 5000,
+    "epsilon": 0.421965350707372,
+    "epsilon_sd": 0.019435053749886067,
+    "n_charts": 28,
+    "seeds": 3,
+    "source": "van Hateren",
+    "epochs": 4000,
+    "core": 5000,
+    "chart": 180
+  },
+  {
+    "axis": "chart",
+    "value": 120,
+    "epsilon": 0.41180387139320374,
+    "epsilon_sd": 0.019160195114033923,
+    "n_charts": 29,
+    "seeds": 3,
+    "source": "van Hateren",
+    "epochs": 4000,
+    "core": 3500,
+    "chart": 120
+  },
+  {
+    "axis": "chart",
+    "value": 180,
+    "epsilon": 0.40154722332954407,
+    "epsilon_sd": 0.007053787251556539,
+    "n_charts": 19,
+    "seeds": 3,
+    "source": "van Hateren",
+    "epochs": 4000,
+    "core": 3500,
+    "chart": 180
+  },
+  {
+    "axis": "chart",
+    "value": 260,
+    "epsilon": 0.4966612259546916,
+    "epsilon_sd": 0.11611406134704305,
+    "n_charts": 13,
+    "seeds": 3,
+    "source": "van Hateren",
+    "epochs": 4000,
+    "core": 3500,
+    "chart": 260
+  }
+]

@@ -1,0 +1,327 @@
+[
+ {
+  "experiment": "S2",
+  "seed": 42,
+  "path": "results/results_paper_20260805_101332/atlases/S2_seed42"
+ },
+ {
+  "experiment": "S2",
+  "seed": 43,
+  "path": "results/results_paper_20260805_101332/atlases/S2_seed43"
+ },
+ {
+  "experiment": "S2",
+  "seed": 44,
+  "path": "results/results_paper_20260805_101332/atlases/S2_seed44"
+ },
+ {
+  "experiment": "S2",
+  "seed": 45,
+  "path": "results/results_paper_20260805_101332/atlases/S2_seed45"
+ },
+ {
+  "experiment": "S2",
+  "seed": 46,
+  "path": "results/results_paper_20260805_101332/atlases/S2_seed46"
+ },
+ {
+  "experiment": "Mobius",
+  "seed": 42,
+  "path": "results/results_paper_20260804_091501/atlases/Mobius_seed42"
+ },
+ {
+  "experiment": "Mobius",
+  "seed": 43,
+  "path": "results/results_paper_20260804_091501/atlases/Mobius_seed43"
+ },
+ {
+  "experiment": "Mobius",
+  "seed": 44,
+  "path": "results/results_paper_20260804_091501/atlases/Mobius_seed44"
+ },
+ {
+  "experiment": "Mobius",
+  "seed": 45,
+  "path": "results/results_paper_20260804_091501/atlases/Mobius_seed45"
+ },
+ {
+  "experiment": "Mobius",
+  "seed": 46,
+  "path": "results/results_paper_20260804_091501/atlases/Mobius_seed46"
+ },
+ {
+  "experiment": "KleinR4",
+  "seed": 42,
+  "path": "results/results_paper_20260805_101547/atlases/Klein_seed42"
+ },
+ {
+  "experiment": "KleinR4",
+  "seed": 43,
+  "path": "results/results_paper_20260805_101547/atlases/Klein_seed43"
+ },
+ {
+  "experiment": "KleinR4",
+  "seed": 44,
+  "path": "results/results_paper_20260805_101547/atlases/Klein_seed44"
+ },
+ {
+  "experiment": "KleinR4",
+  "seed": 45,
+  "path": "results/results_paper_20260805_101547/atlases/Klein_seed45"
+ },
+ {
+  "experiment": "KleinR4",
+  "seed": 46,
+  "path": "results/results_paper_20260805_101547/atlases/Klein_seed46"
+ },
+ {
+  "experiment": "RP2raw",
+  "seed": 42,
+  "path": "results/results_paper_20260804_110243/atlases/RP2_seed42"
+ },
+ {
+  "experiment": "RP2raw",
+  "seed": 43,
+  "path": "results/results_paper_20260804_110243/atlases/RP2_seed43"
+ },
+ {
+  "experiment": "RP2raw",
+  "seed": 44,
+  "path": "results/results_paper_20260804_110243/atlases/RP2_seed44"
+ },
+ {
+  "experiment": "RP2raw",
+  "seed": 45,
+  "path": "results/results_paper_20260804_110243/atlases/RP2_seed45"
+ },
+ {
+  "experiment": "RP2raw",
+  "seed": 46,
+  "path": "results/results_paper_20260804_110243/atlases/RP2_seed46"
+ },
+ {
+  "experiment": "RP2norm",
+  "seed": 42,
+  "path": "results/results_paper_20260804_095231/atlases/RP2_seed42"
+ },
+ {
+  "experiment": "RP2norm",
+  "seed": 43,
+  "path": "results/results_paper_20260804_095231/atlases/RP2_seed43"
+ },
+ {
+  "experiment": "RP2norm",
+  "seed": 44,
+  "path": "results/results_paper_20260804_095231/atlases/RP2_seed44"
+ },
+ {
+  "experiment": "RP2norm",
+  "seed": 45,
+  "path": "results/results_paper_20260804_095231/atlases/RP2_seed45"
+ },
+ {
+  "experiment": "RP2norm",
+  "seed": 46,
+  "path": "results/results_paper_20260804_095231/atlases/RP2_seed46"
+ },
+ {
+  "experiment": "MobS1",
+  "seed": 42,
+  "path": "results/results_paper_20260806_121436/atlases/MobiusS1_seed42"
+ },
+ {
+  "experiment": "MobS1",
+  "seed": 43,
+  "path": "results/results_paper_20260806_121436/atlases/MobiusS1_seed43"
+ },
+ {
+  "experiment": "MobS1",
+  "seed": 44,
+  "path": "results/results_paper_20260806_121436/atlases/MobiusS1_seed44"
+ },
+ {
+  "experiment": "MobS1",
+  "seed": 45,
+  "path": "results/results_paper_20260806_121436/atlases/MobiusS1_seed45"
+ },
+ {
+  "experiment": "MobS1",
+  "seed": 46,
+  "path": "results/results_paper_20260806_121436/atlases/MobiusS1_seed46"
+ },
+ {
+  "experiment": "T3",
+  "seed": 42,
+  "path": "results/results_paper_20260806_124637/atlases/T3_seed42"
+ },
+ {
+  "experiment": "T3",
+  "seed": 43,
+  "path": "results/results_paper_20260806_124637/atlases/T3_seed43"
+ },
+ {
+  "experiment": "T3",
+  "seed": 44,
+  "path": "results/results_paper_20260806_124637/atlases/T3_seed44"
+ },
+ {
+  "experiment": "T3",
+  "seed": 45,
+  "path": "results/results_paper_20260806_124637/atlases/T3_seed45"
+ },
+ {
+  "experiment": "T3",
+  "seed": 46,
+  "path": "results/results_paper_20260806_124637/atlases/T3_seed46"
+ },
+ {
+  "experiment": "patches-real",
+  "seed": 42,
+  "path": "E4_real_data/results_patches_20260804_202645/atlases/seed42"
+ },
+ {
+  "experiment": "patches-real",
+  "seed": 43,
+  "path": "E4_real_data/results_patches_20260804_202645/atlases/seed43"
+ },
+ {
+  "experiment": "patches-real",
+  "seed": 44,
+  "path": "E4_real_data/results_patches_20260804_202645/atlases/seed44"
+ },
+ {
+  "experiment": "patches-real",
+  "seed": 45,
+  "path": "E4_real_data/results_patches_20260804_202645/atlases/seed45"
+ },
+ {
+  "experiment": "patches-real",
+  "seed": 46,
+  "path": "E4_real_data/results_patches_20260804_202645/atlases/seed46"
+ },
+ {
+  "experiment": "patches-model",
+  "seed": 42,
+  "path": "E4_real_data/results_patches_20260804_195745/atlases/seed42"
+ },
+ {
+  "experiment": "patches-model",
+  "seed": 43,
+  "path": "E4_real_data/results_patches_20260804_195745/atlases/seed43"
+ },
+ {
+  "experiment": "patches-model",
+  "seed": 44,
+  "path": "E4_real_data/results_patches_20260804_195745/atlases/seed44"
+ },
+ {
+  "experiment": "patches-model",
+  "seed": 45,
+  "path": "E4_real_data/results_patches_20260804_195745/atlases/seed45"
+ },
+ {
+  "experiment": "patches-model",
+  "seed": 46,
+  "path": "E4_real_data/results_patches_20260804_195745/atlases/seed46"
+ },
+ {
+  "experiment": "cyclo-stratum_0",
+  "seed": 42,
+  "path": "E4_real_data/results_cyclooctane_20260804_193749/atlases/stratum_0_seed42"
+ },
+ {
+  "experiment": "cyclo-stratum_0",
+  "seed": 43,
+  "path": "E4_real_data/results_cyclooctane_20260804_193749/atlases/stratum_0_seed43"
+ },
+ {
+  "experiment": "cyclo-stratum_0",
+  "seed": 44,
+  "path": "E4_real_data/results_cyclooctane_20260804_193749/atlases/stratum_0_seed44"
+ },
+ {
+  "experiment": "cyclo-stratum_0",
+  "seed": 45,
+  "path": "E4_real_data/results_cyclooctane_20260804_193749/atlases/stratum_0_seed45"
+ },
+ {
+  "experiment": "cyclo-stratum_0",
+  "seed": 46,
+  "path": "E4_real_data/results_cyclooctane_20260804_193749/atlases/stratum_0_seed46"
+ },
+ {
+  "experiment": "cyclo-stratum_1",
+  "seed": 42,
+  "path": "E4_real_data/results_cyclooctane_20260804_193749/atlases/stratum_1_seed42"
+ },
+ {
+  "experiment": "cyclo-stratum_1",
+  "seed": 43,
+  "path": "E4_real_data/results_cyclooctane_20260804_193749/atlases/stratum_1_seed43"
+ },
+ {
+  "experiment": "cyclo-stratum_1",
+  "seed": 44,
+  "path": "E4_real_data/results_cyclooctane_20260804_193749/atlases/stratum_1_seed44"
+ },
+ {
+  "experiment": "cyclo-stratum_1",
+  "seed": 45,
+  "path": "E4_real_data/results_cyclooctane_20260804_193749/atlases/stratum_1_seed45"
+ },
+ {
+  "experiment": "cyclo-stratum_1",
+  "seed": 46,
+  "path": "E4_real_data/results_cyclooctane_20260804_193749/atlases/stratum_1_seed46"
+ },
+ {
+  "experiment": "cyclo-stratum_2",
+  "seed": 42,
+  "path": "E4_real_data/results_cyclooctane_20260804_193749/atlases/stratum_2_seed42"
+ },
+ {
+  "experiment": "cyclo-stratum_2",
+  "seed": 43,
+  "path": "E4_real_data/results_cyclooctane_20260804_193749/atlases/stratum_2_seed43"
+ },
+ {
+  "experiment": "cyclo-stratum_2",
+  "seed": 44,
+  "path": "E4_real_data/results_cyclooctane_20260804_193749/atlases/stratum_2_seed44"
+ },
+ {
+  "experiment": "cyclo-stratum_2",
+  "seed": 45,
+  "path": "E4_real_data/results_cyclooctane_20260804_193749/atlases/stratum_2_seed45"
+ },
+ {
+  "experiment": "cyclo-stratum_2",
+  "seed": 46,
+  "path": "E4_real_data/results_cyclooctane_20260804_193749/atlases/stratum_2_seed46"
+ },
+ {
+  "experiment": "cyclo-stratum_3",
+  "seed": 42,
+  "path": "E4_real_data/results_cyclooctane_20260804_193749/atlases/stratum_3_seed42"
+ },
+ {
+  "experiment": "cyclo-stratum_3",
+  "seed": 43,
+  "path": "E4_real_data/results_cyclooctane_20260804_193749/atlases/stratum_3_seed43"
+ },
+ {
+  "experiment": "cyclo-stratum_3",
+  "seed": 44,
+  "path": "E4_real_data/results_cyclooctane_20260804_193749/atlases/stratum_3_seed44"
+ },
+ {
+  "experiment": "cyclo-stratum_3",
+  "seed": 45,
+  "path": "E4_real_data/results_cyclooctane_20260804_193749/atlases/stratum_3_seed45"
+ },
+ {
+  "experiment": "cyclo-stratum_3",
+  "seed": 46,
+  "path": "E4_real_data/results_cyclooctane_20260804_193749/atlases/stratum_3_seed46"
+ }
+]

@@ -1,0 +1,587 @@
+[
+ {
+  "experiment": "S2",
+  "seed": 42,
+  "path": "results/results_paper_20260805_101332/atlases/S2_seed42",
+  "m0": 5,
+  "retained": 15,
+  "discarded": 46,
+  "points_discarded": 84
+ },
+ {
+  "experiment": "S2",
+  "seed": 43,
+  "path": "results/results_paper_20260805_101332/atlases/S2_seed43",
+  "m0": 5,
+  "retained": 12,
+  "discarded": 57,
+  "points_discarded": 97
+ },
+ {
+  "experiment": "S2",
+  "seed": 44,
+  "path": "results/results_paper_20260805_101332/atlases/S2_seed44",
+  "m0": 5,
+  "retained": 21,
+  "discarded": 67,
+  "points_discarded": 104
+ },
+ {
+  "experiment": "S2",
+  "seed": 45,
+  "path": "results/results_paper_20260805_101332/atlases/S2_seed45",
+  "m0": 5,
+  "retained": 16,
+  "discarded": 26,
+  "points_discarded": 44
+ },
+ {
+  "experiment": "S2",
+  "seed": 46,
+  "path": "results/results_paper_20260805_101332/atlases/S2_seed46",
+  "m0": 5,
+  "retained": 16,
+  "discarded": 58,
+  "points_discarded": 95
+ },
+ {
+  "experiment": "Mobius",
+  "seed": 42,
+  "path": "results/results_paper_20260804_091501/atlases/Mobius_seed42",
+  "m0": 5,
+  "retained": 3,
+  "discarded": 5,
+  "points_discarded": 8
+ },
+ {
+  "experiment": "Mobius",
+  "seed": 43,
+  "path": "results/results_paper_20260804_091501/atlases/Mobius_seed43",
+  "m0": 5,
+  "retained": 3,
+  "discarded": 3,
+  "points_discarded": 3
+ },
+ {
+  "experiment": "Mobius",
+  "seed": 44,
+  "path": "results/results_paper_20260804_091501/atlases/Mobius_seed44",
+  "m0": 5,
+  "retained": 4,
+  "discarded": 3,
+  "points_discarded": 6
+ },
+ {
+  "experiment": "Mobius",
+  "seed": 45,
+  "path": "results/results_paper_20260804_091501/atlases/Mobius_seed45",
+  "m0": 5,
+  "retained": 3,
+  "discarded": 3,
+  "points_discarded": 5
+ },
+ {
+  "experiment": "Mobius",
+  "seed": 46,
+  "path": "results/results_paper_20260804_091501/atlases/Mobius_seed46",
+  "m0": 5,
+  "retained": 4,
+  "discarded": 4,
+  "points_discarded": 8
+ },
+ {
+  "experiment": "Klein",
+  "seed": 42,
+  "path": "results/results_paper_20260805_101547/atlases/Klein_seed42",
+  "m0": 5,
+  "retained": 43,
+  "discarded": 97,
+  "points_discarded": 167
+ },
+ {
+  "experiment": "Klein",
+  "seed": 43,
+  "path": "results/results_paper_20260805_101547/atlases/Klein_seed43",
+  "m0": 5,
+  "retained": 58,
+  "discarded": 93,
+  "points_discarded": 161
+ },
+ {
+  "experiment": "Klein",
+  "seed": 44,
+  "path": "results/results_paper_20260805_101547/atlases/Klein_seed44",
+  "m0": 5,
+  "retained": 36,
+  "discarded": 48,
+  "points_discarded": 81
+ },
+ {
+  "experiment": "Klein",
+  "seed": 45,
+  "path": "results/results_paper_20260805_101547/atlases/Klein_seed45",
+  "m0": 5,
+  "retained": 48,
+  "discarded": 99,
+  "points_discarded": 191
+ },
+ {
+  "experiment": "Klein",
+  "seed": 46,
+  "path": "results/results_paper_20260805_101547/atlases/Klein_seed46",
+  "m0": 5,
+  "retained": 39,
+  "discarded": 88,
+  "points_discarded": 171
+ },
+ {
+  "experiment": "RP2",
+  "seed": 42,
+  "path": "results/results_paper_20260804_110243/atlases/RP2_seed42",
+  "m0": 5,
+  "retained": 279,
+  "discarded": 542,
+  "points_discarded": 678
+ },
+ {
+  "experiment": "RP2",
+  "seed": 43,
+  "path": "results/results_paper_20260804_110243/atlases/RP2_seed43",
+  "m0": 5,
+  "retained": 304,
+  "discarded": 994,
+  "points_discarded": 1142
+ },
+ {
+  "experiment": "RP2",
+  "seed": 44,
+  "path": "results/results_paper_20260804_110243/atlases/RP2_seed44",
+  "m0": 5,
+  "retained": 260,
+  "discarded": 1100,
+  "points_discarded": 1239
+ },
+ {
+  "experiment": "RP2",
+  "seed": 45,
+  "path": "results/results_paper_20260804_110243/atlases/RP2_seed45",
+  "m0": 5,
+  "retained": 298,
+  "discarded": 1023,
+  "points_discarded": 1146
+ },
+ {
+  "experiment": "RP2",
+  "seed": 46,
+  "path": "results/results_paper_20260804_110243/atlases/RP2_seed46",
+  "m0": 5,
+  "retained": 270,
+  "discarded": 472,
+  "points_discarded": 642
+ },
+ {
+  "experiment": "RP2",
+  "seed": 42,
+  "path": "results/results_paper_20260804_095231/atlases/RP2_seed42",
+  "m0": 5,
+  "retained": 187,
+  "discarded": 62,
+  "points_discarded": 132
+ },
+ {
+  "experiment": "RP2",
+  "seed": 43,
+  "path": "results/results_paper_20260804_095231/atlases/RP2_seed43",
+  "m0": 5,
+  "retained": 206,
+  "discarded": 80,
+  "points_discarded": 159
+ },
+ {
+  "experiment": "RP2",
+  "seed": 44,
+  "path": "results/results_paper_20260804_095231/atlases/RP2_seed44",
+  "m0": 5,
+  "retained": 185,
+  "discarded": 101,
+  "points_discarded": 172
+ },
+ {
+  "experiment": "RP2",
+  "seed": 45,
+  "path": "results/results_paper_20260804_095231/atlases/RP2_seed45",
+  "m0": 5,
+  "retained": 185,
+  "discarded": 117,
+  "points_discarded": 217
+ },
+ {
+  "experiment": "RP2",
+  "seed": 46,
+  "path": "results/results_paper_20260804_095231/atlases/RP2_seed46",
+  "m0": 5,
+  "retained": 188,
+  "discarded": 105,
+  "points_discarded": 189
+ },
+ {
+  "experiment": "MobiusS1",
+  "seed": 42,
+  "path": "results/results_paper_20260806_121436/atlases/MobiusS1_seed42",
+  "m0": 5,
+  "retained": 24,
+  "discarded": 4,
+  "points_discarded": 4
+ },
+ {
+  "experiment": "MobiusS1",
+  "seed": 43,
+  "path": "results/results_paper_20260806_121436/atlases/MobiusS1_seed43",
+  "m0": 5,
+  "retained": 24,
+  "discarded": 4,
+  "points_discarded": 4
+ },
+ {
+  "experiment": "MobiusS1",
+  "seed": 44,
+  "path": "results/results_paper_20260806_121436/atlases/MobiusS1_seed44",
+  "m0": 5,
+  "retained": 24,
+  "discarded": 5,
+  "points_discarded": 5
+ },
+ {
+  "experiment": "MobiusS1",
+  "seed": 45,
+  "path": "results/results_paper_20260806_121436/atlases/MobiusS1_seed45",
+  "m0": 5,
+  "retained": 24,
+  "discarded": 0,
+  "points_discarded": 0
+ },
+ {
+  "experiment": "MobiusS1",
+  "seed": 46,
+  "path": "results/results_paper_20260806_121436/atlases/MobiusS1_seed46",
+  "m0": 5,
+  "retained": 24,
+  "discarded": 3,
+  "points_discarded": 3
+ },
+ {
+  "experiment": "T3",
+  "seed": 42,
+  "path": "results/results_paper_20260806_124637/atlases/T3_seed42",
+  "m0": 5,
+  "retained": 345,
+  "discarded": 22,
+  "points_discarded": 82
+ },
+ {
+  "experiment": "T3",
+  "seed": 43,
+  "path": "results/results_paper_20260806_124637/atlases/T3_seed43",
+  "m0": 5,
+  "retained": 361,
+  "discarded": 46,
+  "points_discarded": 98
+ },
+ {
+  "experiment": "T3",
+  "seed": 44,
+  "path": "results/results_paper_20260806_124637/atlases/T3_seed44",
+  "m0": 5,
+  "retained": 347,
+  "discarded": 49,
+  "points_discarded": 110
+ },
+ {
+  "experiment": "T3",
+  "seed": 45,
+  "path": "results/results_paper_20260806_124637/atlases/T3_seed45",
+  "m0": 5,
+  "retained": 349,
+  "discarded": 43,
+  "points_discarded": 122
+ },
+ {
+  "experiment": "T3",
+  "seed": 46,
+  "path": "results/results_paper_20260806_124637/atlases/T3_seed46",
+  "m0": 5,
+  "retained": 361,
+  "discarded": 22,
+  "points_discarded": 58
+ },
+ {
+  "experiment": "patches (202645)",
+  "seed": 42,
+  "path": "E4_real_data/results_patches_20260804_202645/atlases/seed42",
+  "m0": 5,
+  "retained": 223,
+  "discarded": 90,
+  "points_discarded": 171
+ },
+ {
+  "experiment": "patches (202645)",
+  "seed": 43,
+  "path": "E4_real_data/results_patches_20260804_202645/atlases/seed43",
+  "m0": 5,
+  "retained": 214,
+  "discarded": 90,
+  "points_discarded": 162
+ },
+ {
+  "experiment": "patches (202645)",
+  "seed": 44,
+  "path": "E4_real_data/results_patches_20260804_202645/atlases/seed44",
+  "m0": 5,
+  "retained": 230,
+  "discarded": 89,
+  "points_discarded": 171
+ },
+ {
+  "experiment": "patches (202645)",
+  "seed": 45,
+  "path": "E4_real_data/results_patches_20260804_202645/atlases/seed45",
+  "m0": 5,
+  "retained": 229,
+  "discarded": 87,
+  "points_discarded": 159
+ },
+ {
+  "experiment": "patches (202645)",
+  "seed": 46,
+  "path": "E4_real_data/results_patches_20260804_202645/atlases/seed46",
+  "m0": 5,
+  "retained": 218,
+  "discarded": 85,
+  "points_discarded": 175
+ },
+ {
+  "experiment": "patches (195745)",
+  "seed": 42,
+  "path": "E4_real_data/results_patches_20260804_195745/atlases/seed42",
+  "m0": 5,
+  "retained": 278,
+  "discarded": 532,
+  "points_discarded": 918
+ },
+ {
+  "experiment": "patches (195745)",
+  "seed": 43,
+  "path": "E4_real_data/results_patches_20260804_195745/atlases/seed43",
+  "m0": 5,
+  "retained": 292,
+  "discarded": 487,
+  "points_discarded": 863
+ },
+ {
+  "experiment": "patches (195745)",
+  "seed": 44,
+  "path": "E4_real_data/results_patches_20260804_195745/atlases/seed44",
+  "m0": 5,
+  "retained": 257,
+  "discarded": 558,
+  "points_discarded": 963
+ },
+ {
+  "experiment": "patches (195745)",
+  "seed": 45,
+  "path": "E4_real_data/results_patches_20260804_195745/atlases/seed45",
+  "m0": 5,
+  "retained": 285,
+  "discarded": 536,
+  "points_discarded": 899
+ },
+ {
+  "experiment": "patches (195745)",
+  "seed": 46,
+  "path": "E4_real_data/results_patches_20260804_195745/atlases/seed46",
+  "m0": 5,
+  "retained": 277,
+  "discarded": 567,
+  "points_discarded": 999
+ },
+ {
+  "experiment": "cyclo-octane stratum_0",
+  "seed": 42,
+  "path": "E4_real_data/results_cyclooctane_20260804_193749/atlases/stratum_0_seed42",
+  "m0": 5,
+  "retained": 27,
+  "discarded": 23,
+  "points_discarded": 44
+ },
+ {
+  "experiment": "cyclo-octane stratum_0",
+  "seed": 43,
+  "path": "E4_real_data/results_cyclooctane_20260804_193749/atlases/stratum_0_seed43",
+  "m0": 5,
+  "retained": 35,
+  "discarded": 11,
+  "points_discarded": 23
+ },
+ {
+  "experiment": "cyclo-octane stratum_0",
+  "seed": 44,
+  "path": "E4_real_data/results_cyclooctane_20260804_193749/atlases/stratum_0_seed44",
+  "m0": 5,
+  "retained": 30,
+  "discarded": 18,
+  "points_discarded": 35
+ },
+ {
+  "experiment": "cyclo-octane stratum_0",
+  "seed": 45,
+  "path": "E4_real_data/results_cyclooctane_20260804_193749/atlases/stratum_0_seed45",
+  "m0": 5,
+  "retained": 30,
+  "discarded": 25,
+  "points_discarded": 46
+ },
+ {
+  "experiment": "cyclo-octane stratum_0",
+  "seed": 46,
+  "path": "E4_real_data/results_cyclooctane_20260804_193749/atlases/stratum_0_seed46",
+  "m0": 5,
+  "retained": 32,
+  "discarded": 21,
+  "points_discarded": 35
+ },
+ {
+  "experiment": "cyclo-octane stratum_1",
+  "seed": 42,
+  "path": "E4_real_data/results_cyclooctane_20260804_193749/atlases/stratum_1_seed42",
+  "m0": 5,
+  "retained": 11,
+  "discarded": 2,
+  "points_discarded": 3
+ },
+ {
+  "experiment": "cyclo-octane stratum_1",
+  "seed": 43,
+  "path": "E4_real_data/results_cyclooctane_20260804_193749/atlases/stratum_1_seed43",
+  "m0": 5,
+  "retained": 12,
+  "discarded": 2,
+  "points_discarded": 3
+ },
+ {
+  "experiment": "cyclo-octane stratum_1",
+  "seed": 44,
+  "path": "E4_real_data/results_cyclooctane_20260804_193749/atlases/stratum_1_seed44",
+  "m0": 5,
+  "retained": 9,
+  "discarded": 3,
+  "points_discarded": 4
+ },
+ {
+  "experiment": "cyclo-octane stratum_1",
+  "seed": 45,
+  "path": "E4_real_data/results_cyclooctane_20260804_193749/atlases/stratum_1_seed45",
+  "m0": 5,
+  "retained": 9,
+  "discarded": 3,
+  "points_discarded": 7
+ },
+ {
+  "experiment": "cyclo-octane stratum_1",
+  "seed": 46,
+  "path": "E4_real_data/results_cyclooctane_20260804_193749/atlases/stratum_1_seed46",
+  "m0": 5,
+  "retained": 11,
+  "discarded": 3,
+  "points_discarded": 10
+ },
+ {
+  "experiment": "cyclo-octane stratum_2",
+  "seed": 42,
+  "path": "E4_real_data/results_cyclooctane_20260804_193749/atlases/stratum_2_seed42",
+  "m0": 5,
+  "retained": 17,
+  "discarded": 5,
+  "points_discarded": 10
+ },
+ {
+  "experiment": "cyclo-octane stratum_2",
+  "seed": 43,
+  "path": "E4_real_data/results_cyclooctane_20260804_193749/atlases/stratum_2_seed43",
+  "m0": 5,
+  "retained": 18,
+  "discarded": 11,
+  "points_discarded": 26
+ },
+ {
+  "experiment": "cyclo-octane stratum_2",
+  "seed": 44,
+  "path": "E4_real_data/results_cyclooctane_20260804_193749/atlases/stratum_2_seed44",
+  "m0": 5,
+  "retained": 17,
+  "discarded": 13,
+  "points_discarded": 39
+ },
+ {
+  "experiment": "cyclo-octane stratum_2",
+  "seed": 45,
+  "path": "E4_real_data/results_cyclooctane_20260804_193749/atlases/stratum_2_seed45",
+  "m0": 5,
+  "retained": 17,
+  "discarded": 10,
+  "points_discarded": 22
+ },
+ {
+  "experiment": "cyclo-octane stratum_2",
+  "seed": 46,
+  "path": "E4_real_data/results_cyclooctane_20260804_193749/atlases/stratum_2_seed46",
+  "m0": 5,
+  "retained": 14,
+  "discarded": 17,
+  "points_discarded": 47
+ },
+ {
+  "experiment": "cyclo-octane stratum_3",
+  "seed": 42,
+  "path": "E4_real_data/results_cyclooctane_20260804_193749/atlases/stratum_3_seed42",
+  "m0": 5,
+  "retained": 19,
+  "discarded": 11,
+  "points_discarded": 22
+ },
+ {
+  "experiment": "cyclo-octane stratum_3",
+  "seed": 43,
+  "path": "E4_real_data/results_cyclooctane_20260804_193749/atlases/stratum_3_seed43",
+  "m0": 5,
+  "retained": 19,
+  "discarded": 6,
+  "points_discarded": 12
+ },
+ {
+  "experiment": "cyclo-octane stratum_3",
+  "seed": 44,
+  "path": "E4_real_data/results_cyclooctane_20260804_193749/atlases/stratum_3_seed44",
+  "m0": 5,
+  "retained": 16,
+  "discarded": 16,
+  "points_discarded": 37
+ },
+ {
+  "experiment": "cyclo-octane stratum_3",
+  "seed": 45,
+  "path": "E4_real_data/results_cyclooctane_20260804_193749/atlases/stratum_3_seed45",
+  "m0": 5,
+  "retained": 17,
+  "discarded": 9,
+  "points_discarded": 17
+ },
+ {
+  "experiment": "cyclo-octane stratum_3",
+  "seed": 46,
+  "path": "E4_real_data/results_cyclooctane_20260804_193749/atlases/stratum_3_seed46",
+  "m0": 5,
+  "retained": 17,
+  "discarded": 16,
+  "points_discarded": 34
+ }
+]

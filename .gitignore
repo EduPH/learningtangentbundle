@@ -1,2 +1,37 @@
 .DS_Store
-*.pyc
+__pycache__/fiberbundleautoencoder.cpython-313.pyc
+/__pycache__
+*.egg-info/
+src/atlasae/__pycache__/
+experiments/**/__pycache__/
+
+# --- the paper is NOT part of this repository ---
+# LaTeX sources, figures, letters and the SIAM template live here locally
+# (REGENERATE.md writes figures into them) but are never tracked or published.
+/Fcom__Atlas_Autoencoders/
+/siamonline_250211/
+
+# --- paper-side working documents: local only ---
+/reviews/
+/TODO.md
+
+# --- large input datasets (downloadable; do not commit) ---
+experiments/E4_real_data/vanhateren_iml/
+experiments/E4_real_data/coil20/
+experiments/E4_real_data/pointsCycloOctane.mat
+experiments/E4_real_data/teaser_cache.npz
+
+# --- superseded experiment runs (kept locally, not reported) ---
+experiments/_superseded/
+
+# trained atlases (regenerable; keep locally, ~2 MB per full run)
+experiments/**/atlases/
+
+# --- local archive: superseded paper drafts, unused figures and code ---
+/_archive/
+
+# --- local run markers ---
+.run_markers/
+
+# --- run logs (regenerable; run_all.sh writes them) ---
+logs/

@@ -1,0 +1,110 @@
+[
+  {
+    "axis": "epochs",
+    "value": 2000,
+    "epsilon": 0.07401906698942184,
+    "epsilon_sd": 0.008783280711451237,
+    "n_charts": 19,
+    "seeds": 3,
+    "source": "synthetic",
+    "epochs": 2000,
+    "core": 3500,
+    "chart": 180
+  },
+  {
+    "axis": "epochs",
+    "value": 4000,
+    "epsilon": 0.03839019685983658,
+    "epsilon_sd": 0.0034375945468366263,
+    "n_charts": 19,
+    "seeds": 3,
+    "source": "synthetic",
+    "epochs": 4000,
+    "core": 3500,
+    "chart": 180
+  },
+  {
+    "axis": "epochs",
+    "value": 8000,
+    "epsilon": 0.023369612793127697,
+    "epsilon_sd": 0.006893265586354196,
+    "n_charts": 19,
+    "seeds": 3,
+    "source": "synthetic",
+    "epochs": 8000,
+    "core": 3500,
+    "chart": 180
+  },
+  {
+    "axis": "core",
+    "value": 2000,
+    "epsilon": 0.16943347454071045,
+    "epsilon_sd": 0.0768202538714437,
+    "n_charts": 11,
+    "seeds": 3,
+    "source": "synthetic",
+    "epochs": 4000,
+    "core": 2000,
+    "chart": 180
+  },
+  {
+    "axis": "core",
+    "value": 3500,
+    "epsilon": 0.05786538124084473,
+    "epsilon_sd": 0.042044017241263,
+    "n_charts": 19,
+    "seeds": 3,
+    "source": "synthetic",
+    "epochs": 4000,
+    "core": 3500,
+    "chart": 180
+  },
+  {
+    "axis": "core",
+    "value": 5000,
+    "epsilon": 0.04275104527672132,
+    "epsilon_sd": 0.013050121529387813,
+    "n_charts": 28,
+    "seeds": 3,
+    "source": "synthetic",
+    "epochs": 4000,
+    "core": 5000,
+    "chart": 180
+  },
+  {
+    "axis": "chart",
+    "value": 120,
+    "epsilon": 0.08989943191409111,
+    "epsilon_sd": 0.05005083394485817,
+    "n_charts": 29,
+    "seeds": 3,
+    "source": "synthetic",
+    "epochs": 4000,
+    "core": 3500,
+    "chart": 120
+  },
+  {
+    "axis": "chart",
+    "value": 180,
+    "epsilon": 0.03934712583820025,
+    "epsilon_sd": 0.0018522750818926925,
+    "n_charts": 19,
+    "seeds": 3,
+    "source": "synthetic",
+    "epochs": 4000,
+    "core": 3500,
+    "chart": 180
+  },
+  {
+    "axis": "chart",
+    "value": 260,
+    "epsilon": 0.08828432857990265,
+    "epsilon_sd": 0.03626814354609381,
+    "n_charts": 13,
+    "seeds": 3,
+    "source": "synthetic",
+    "epochs": 4000,
+    "core": 3500,
+    "chart": 260
+  }
+]

@@ -1,0 +1,50 @@
+[
+  {
+    "manifold": "S2",
+    "n_points": 2000,
+    "epochs": 4000,
+    "seed": 42,
+    "varepsilon": 0.007429109886288643,
+    "delta": 0.08672769367694855,
+    "n_overlaps": 12,
+    "n_certified": 9,
+    "fraction_certified": 0.75,
+    "worst_margin": 0.40635279035553484,
+    "median_margin": 1.226034767667724,
+    "median_h": 0.03813589428812761,
+    "median_L": 2.587286949157715,
+    "n_sign_flips": 0
+  },
+  {
+    "manifold": "Mobius",
+    "n_points": 2000,
+    "epochs": 4000,
+    "seed": 42,
+    "varepsilon": 0.01243174821138382,
+    "delta": 0.6003838777542114,
+    "n_overlaps": 2,
+    "n_certified": 2,
+    "fraction_certified": 1.0,
+    "worst_margin": 7.63797416101485,
+    "median_margin": 7.964387589765387,
+    "median_h": 0.03371076576452411,
+    "median_L": 0.9055771231651306,
+    "n_sign_flips": 2
+  },
+  {
+    "manifold": "Klein",
+    "n_points": 2000,
+    "epochs": 4000,
+    "seed": 42,
+    "varepsilon": 0.12471867352724075,
+    "delta": 0.09201745688915253,
+    "n_overlaps": 32,
+    "n_certified": 6,
+    "fraction_certified": 0.1875,
+    "worst_margin": 0.025148061543813428,
+    "median_margin": 0.4244294776612642,
+    "median_h": 0.09777772108274771,
+    "median_L": 2.0942052602767944,
+    "n_sign_flips": 0
+  }
+]

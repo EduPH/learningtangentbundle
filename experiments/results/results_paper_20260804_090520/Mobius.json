@@ -1,0 +1,23 @@
+[
+ {
+  "manifold": "Mobius",
+  "seed": 42,
+  "min_points": 5,
+  "sphere_normalize": false,
+  "pca_dim": null,
+  "varepsilon": 0.5360940098762512,
+  "varepsilon_mean": 0.11948581039905548,
+  "eta_pca": 1.660003423690796,
+  "eta_true": 1.7364168167114258,
+  "sigma_min_enc": 0.544352650642395,
+  "delta": 1.6803544759750366,
+  "delta_mean": 3.3220293521881104,
+  "cocycle_error": 0.20859211683273315,
+  "n_eta_outliers": 2,
+  "certified": false,
+  "verdict": "orientable",
+  "correct": false,
+  "n_charts": 2,
+  "atlas_path": "Mobius_seed42"
+ }
+]

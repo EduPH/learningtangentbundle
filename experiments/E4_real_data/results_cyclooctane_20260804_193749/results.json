@@ -1,0 +1,1622 @@
+[
+ {
+  "stratum": "stratum_0",
+  "n_points": 2846,
+  "n_charts": 16,
+  "varepsilon": 0.0894714891910553,
+  "eta_pca": 0.8169307112693787,
+  "n_eta_outliers": 0,
+  "delta": 0.0808682069182396,
+  "certified": true,
+  "n_dropped_overlaps": 10,
+  "max_dropped_overlap": 3,
+  "sliver_frac": 0.01639344262295082,
+  "min_points": 5,
+  "n_overlaps_used": 28,
+  "verdict": "non-orientable",
+  "cocycle_verified": true,
+  "eta_per_chart": [
+   {
+    "chart": 0,
+    "n_points": 204,
+    "eta_lat": 0.13737992942333221,
+    "eta_pca": 0.6318924427032471
+   },
+   {
+    "chart": 1,
+    "n_points": 223,
+    "eta_lat": 0.18548883497714996,
+    "eta_pca": 0.6880293488502502
+   },
+   {
+    "chart": 2,
+    "n_points": 195,
+    "eta_lat": 0.1672629565000534,
+    "eta_pca": 0.5257039666175842
+   },
+   {
+    "chart": 3,
+    "n_points": 184,
+    "eta_lat": 0.18843989074230194,
+    "eta_pca": 0.5597604513168335
+   },
+   {
+    "chart": 4,
+    "n_points": 240,
+    "eta_lat": 0.20726263523101807,
+    "eta_pca": 0.4771137833595276
+   },
+   {
+    "chart": 5,
+    "n_points": 261,
+    "eta_lat": 0.13854359090328217,
+    "eta_pca": 0.35971176624298096
+   },
+   {
+    "chart": 6,
+    "n_points": 243,
+    "eta_lat": 0.16253167390823364,
+    "eta_pca": 0.4226287305355072
+   },
+   {
+    "chart": 7,
+    "n_points": 263,
+    "eta_lat": 0.1544821560382843,
+    "eta_pca": 0.5373597741127014
+   },
+   {
+    "chart": 8,
+    "n_points": 269,
+    "eta_lat": 0.1507689356803894,
+    "eta_pca": 0.580496072769165
+   },
+   {
+    "chart": 9,
+    "n_points": 230,
+    "eta_lat": 0.12458999454975128,
+    "eta_pca": 0.4432843327522278
+   },
+   {
+    "chart": 10,
+    "n_points": 207,
+    "eta_lat": 0.3041251599788666,
+    "eta_pca": 0.7125036120414734
+   },
+   {
+    "chart": 11,
+    "n_points": 227,
+    "eta_lat": 0.26737186312675476,
+    "eta_pca": 0.8169307112693787
+   },
+   {
+    "chart": 12,
+    "n_points": 191,
+    "eta_lat": 0.2302384376525879,
+    "eta_pca": 0.4702538251876831
+   },
+   {
+    "chart": 13,
+    "n_points": 183,
+    "eta_lat": 0.1794065684080124,
+    "eta_pca": 0.5727442502975464
+   },
+   {
+    "chart": 14,
+    "n_points": 275,
+    "eta_lat": 0.11257199198007584,
+    "eta_pca": 0.5437533855438232
+   },
+   {
+    "chart": 15,
+    "n_points": 248,
+    "eta_lat": 0.15255196392536163,
+    "eta_pca": 0.477378249168396
+   }
+  ],
+  "seed": 42,
+  "stratum_index": 0
+ },
+ {
+  "stratum": "stratum_0",
+  "n_points": 2846,
+  "n_charts": 16,
+  "varepsilon": 0.1253156214952469,
+  "eta_pca": 0.7377763390541077,
+  "n_eta_outliers": 0,
+  "delta": 0.02068948931992054,
+  "certified": true,
+  "n_dropped_overlaps": 7,
+  "max_dropped_overlap": 4,
+  "sliver_frac": 0.021052631578947368,
+  "min_points": 5,
+  "n_overlaps_used": 32,
+  "verdict": "non-orientable",
+  "cocycle_verified": true,
+  "eta_per_chart": [
+   {
+    "chart": 0,
+    "n_points": 234,
+    "eta_lat": 0.18252123892307281,
+    "eta_pca": 0.574583888053894
+   },
+   {
+    "chart": 1,
+    "n_points": 228,
+    "eta_lat": 0.21066197752952576,
+    "eta_pca": 0.6467239260673523
+   },
+   {
+    "chart": 2,
+    "n_points": 202,
+    "eta_lat": 0.18789879977703094,
+    "eta_pca": 0.43887338042259216
+   },
+   {
+    "chart": 3,
+    "n_points": 192,
+    "eta_lat": 0.14021489024162292,
+    "eta_pca": 0.5288906693458557
+   },
+   {
+    "chart": 4,
+    "n_points": 226,
+    "eta_lat": 0.16555142402648926,
+    "eta_pca": 0.47447583079338074
+   },
+   {
+    "chart": 5,
+    "n_points": 236,
+    "eta_lat": 0.2355547994375229,
+    "eta_pca": 0.42819860577583313
+   },
+   {
+    "chart": 6,
+    "n_points": 255,
+    "eta_lat": 0.2097490429878235,
+    "eta_pca": 0.43752211332321167
+   },
+   {
+    "chart": 7,
+    "n_points": 282,
+    "eta_lat": 0.1292925626039505,
+    "eta_pca": 0.5788478851318359
+   },
+   {
+    "chart": 8,
+    "n_points": 264,
+    "eta_lat": 0.14285506308078766,
+    "eta_pca": 0.3239031732082367
+   },
+   {
+    "chart": 9,
+    "n_points": 226,
+    "eta_lat": 0.219614639878273,
+    "eta_pca": 0.5085791945457458
+   },
+   {
+    "chart": 10,
+    "n_points": 192,
+    "eta_lat": 0.2187960296869278,
+    "eta_pca": 0.49800828099250793
+   },
+   {
+    "chart": 11,
+    "n_points": 206,
+    "eta_lat": 0.1464170664548874,
+    "eta_pca": 0.4638701379299164
+   },
+   {
+    "chart": 12,
+    "n_points": 226,
+    "eta_lat": 0.16218136250972748,
+    "eta_pca": 0.41750407218933105
+   },
+   {
+    "chart": 13,
+    "n_points": 190,
+    "eta_lat": 0.16121868789196014,
+    "eta_pca": 0.5066285133361816
+   },
+   {
+    "chart": 14,
+    "n_points": 243,
+    "eta_lat": 0.12408076226711273,
+    "eta_pca": 0.3425186574459076
+   },
+   {
+    "chart": 15,
+    "n_points": 241,
+    "eta_lat": 0.17181988060474396,
+    "eta_pca": 0.7377763390541077
+   }
+  ],
+  "seed": 43,
+  "stratum_index": 0
+ },
+ {
+  "stratum": "stratum_0",
+  "n_points": 2846,
+  "n_charts": 16,
+  "varepsilon": 0.08126092702150345,
+  "eta_pca": 0.8170366287231445,
+  "n_eta_outliers": 0,
+  "delta": 0.12895317375659943,
+  "certified": true,
+  "n_dropped_overlaps": 9,
+  "max_dropped_overlap": 3,
+  "sliver_frac": 0.016853932584269662,
+  "min_points": 5,
+  "n_overlaps_used": 31,
+  "verdict": "non-orientable",
+  "cocycle_verified": true,
+  "eta_per_chart": [
+   {
+    "chart": 0,
+    "n_points": 213,
+    "eta_lat": 0.11842988431453705,
+    "eta_pca": 0.8170366287231445
+   },
+   {
+    "chart": 1,
+    "n_points": 194,
+    "eta_lat": 0.18571703135967255,
+    "eta_pca": 0.47757235169410706
+   },
+   {
+    "chart": 2,
+    "n_points": 213,
+    "eta_lat": 0.1500473916530609,
+    "eta_pca": 0.7007472515106201
+   },
+   {
+    "chart": 3,
+    "n_points": 178,
+    "eta_lat": 0.18839870393276215,
+    "eta_pca": 0.7466906905174255
+   },
+   {
+    "chart": 4,
+    "n_points": 213,
+    "eta_lat": 0.17136794328689575,
+    "eta_pca": 0.4259604215621948
+   },
+   {
+    "chart": 5,
+    "n_points": 222,
+    "eta_lat": 0.13887082040309906,
+    "eta_pca": 0.6937724351882935
+   },
+   {
+    "chart": 6,
+    "n_points": 272,
+    "eta_lat": 0.19721615314483643,
+    "eta_pca": 0.38948047161102295
+   },
+   {
+    "chart": 7,
+    "n_points": 244,
+    "eta_lat": 0.17710387706756592,
+    "eta_pca": 0.542611300945282
+   },
+   {
+    "chart": 8,
+    "n_points": 282,
+    "eta_lat": 0.2651849687099457,
+    "eta_pca": 0.5726199746131897
+   },
+   {
+    "chart": 9,
+    "n_points": 270,
+    "eta_lat": 0.10160870850086212,
+    "eta_pca": 0.3797278106212616
+   },
+   {
+    "chart": 10,
+    "n_points": 220,
+    "eta_lat": 0.173666313290596,
+    "eta_pca": 0.595140814781189
+   },
+   {
+    "chart": 11,
+    "n_points": 218,
+    "eta_lat": 0.12748169898986816,
+    "eta_pca": 0.6355616450309753
+   },
+   {
+    "chart": 12,
+    "n_points": 240,
+    "eta_lat": 0.3691067099571228,
+    "eta_pca": 0.5590372681617737
+   },
+   {
+    "chart": 13,
+    "n_points": 185,
+    "eta_lat": 0.17588236927986145,
+    "eta_pca": 0.5192994475364685
+   },
+   {
+    "chart": 14,
+    "n_points": 272,
+    "eta_lat": 0.12181121855974197,
+    "eta_pca": 0.6096177101135254
+   },
+   {
+    "chart": 15,
+    "n_points": 207,
+    "eta_lat": 0.1506815105676651,
+    "eta_pca": 0.683025598526001
+   }
+  ],
+  "seed": 44,
+  "stratum_index": 0
+ },
+ {
+  "stratum": "stratum_0",
+  "n_points": 2846,
+  "n_charts": 16,
+  "varepsilon": 0.09416722506284714,
+  "eta_pca": 0.8778907656669617,
+  "n_eta_outliers": 0,
+  "delta": 0.20302577316761017,
+  "certified": true,
+  "n_dropped_overlaps": 15,
+  "max_dropped_overlap": 4,
+  "sliver_frac": 0.020833333333333332,
+  "min_points": 5,
+  "n_overlaps_used": 29,
+  "verdict": "non-orientable",
+  "cocycle_verified": true,
+  "eta_per_chart": [
+   {
+    "chart": 0,
+    "n_points": 221,
+    "eta_lat": 0.1672554314136505,
+    "eta_pca": 0.7607208490371704
+   },
+   {
+    "chart": 1,
+    "n_points": 213,
+    "eta_lat": 0.34945544600486755,
+    "eta_pca": 0.8778907656669617
+   },
+   {
+    "chart": 2,
+    "n_points": 200,
+    "eta_lat": 0.14112743735313416,
+    "eta_pca": 0.5366359949111938
+   },
+   {
+    "chart": 3,
+    "n_points": 192,
+    "eta_lat": 0.19180284440517426,
+    "eta_pca": 0.5178365111351013
+   },
+   {
+    "chart": 4,
+    "n_points": 215,
+    "eta_lat": 0.2777903378009796,
+    "eta_pca": 0.8241351842880249
+   },
+   {
+    "chart": 5,
+    "n_points": 200,
+    "eta_lat": 0.17337186634540558,
+    "eta_pca": 0.5194377303123474
+   },
+   {
+    "chart": 6,
+    "n_points": 263,
+    "eta_lat": 0.21527770161628723,
+    "eta_pca": 0.6291589736938477
+   },
+   {
+    "chart": 7,
+    "n_points": 259,
+    "eta_lat": 0.19630227982997894,
+    "eta_pca": 0.5186882615089417
+   },
+   {
+    "chart": 8,
+    "n_points": 280,
+    "eta_lat": 0.15834373235702515,
+    "eta_pca": 0.378892183303833
+   },
+   {
+    "chart": 9,
+    "n_points": 199,
+    "eta_lat": 0.1062873899936676,
+    "eta_pca": 0.38464879989624023
+   },
+   {
+    "chart": 10,
+    "n_points": 275,
+    "eta_lat": 0.17573200166225433,
+    "eta_pca": 0.532421350479126
+   },
+   {
+    "chart": 11,
+    "n_points": 212,
+    "eta_lat": 0.15017876029014587,
+    "eta_pca": 0.34748151898384094
+   },
+   {
+    "chart": 12,
+    "n_points": 260,
+    "eta_lat": 0.14950300753116608,
+    "eta_pca": 0.5945941209793091
+   },
+   {
+    "chart": 13,
+    "n_points": 196,
+    "eta_lat": 0.1176287829875946,
+    "eta_pca": 0.33115893602371216
+   },
+   {
+    "chart": 14,
+    "n_points": 262,
+    "eta_lat": 0.0791282206773758,
+    "eta_pca": 0.45340031385421753
+   },
+   {
+    "chart": 15,
+    "n_points": 196,
+    "eta_lat": 0.16383354365825653,
+    "eta_pca": 0.7371457815170288
+   }
+  ],
+  "seed": 45,
+  "stratum_index": 0
+ },
+ {
+  "stratum": "stratum_0",
+  "n_points": 2846,
+  "n_charts": 16,
+  "varepsilon": 0.10522922873497009,
+  "eta_pca": 0.9588301181793213,
+  "n_eta_outliers": 0,
+  "delta": 0.1357336789369583,
+  "certified": true,
+  "n_dropped_overlaps": 11,
+  "max_dropped_overlap": 3,
+  "sliver_frac": 0.01675977653631285,
+  "min_points": 5,
+  "n_overlaps_used": 30,
+  "verdict": "non-orientable",
+  "cocycle_verified": true,
+  "eta_per_chart": [
+   {
+    "chart": 0,
+    "n_points": 271,
+    "eta_lat": 0.12294457107782364,
+    "eta_pca": 0.4747318625450134
+   },
+   {
+    "chart": 1,
+    "n_points": 248,
+    "eta_lat": 0.18075965344905853,
+    "eta_pca": 0.6096739768981934
+   },
+   {
+    "chart": 2,
+    "n_points": 179,
+    "eta_lat": 0.17641067504882812,
+    "eta_pca": 0.5900262594223022
+   },
+   {
+    "chart": 3,
+    "n_points": 198,
+    "eta_lat": 0.21068231761455536,
+    "eta_pca": 0.558181643486023
+   },
+   {
+    "chart": 4,
+    "n_points": 206,
+    "eta_lat": 0.33702605962753296,
+    "eta_pca": 0.9588301181793213
+   },
+   {
+    "chart": 5,
+    "n_points": 196,
+    "eta_lat": 0.17750667035579681,
+    "eta_pca": 0.46305739879608154
+   },
+   {
+    "chart": 6,
+    "n_points": 217,
+    "eta_lat": 0.22639022767543793,
+    "eta_pca": 0.6846058368682861
+   },
+   {
+    "chart": 7,
+    "n_points": 215,
+    "eta_lat": 0.23978617787361145,
+    "eta_pca": 0.3614249527454376
+   },
+   {
+    "chart": 8,
+    "n_points": 263,
+    "eta_lat": 0.2089923620223999,
+    "eta_pca": 0.452181339263916
+   },
+   {
+    "chart": 9,
+    "n_points": 289,
+    "eta_lat": 0.3524840474128723,
+    "eta_pca": 0.5992246866226196
+   },
+   {
+    "chart": 10,
+    "n_points": 289,
+    "eta_lat": 0.2804395854473114,
+    "eta_pca": 0.4171530306339264
+   },
+   {
+    "chart": 11,
+    "n_points": 210,
+    "eta_lat": 0.34640777111053467,
+    "eta_pca": 0.9122347831726074
+   },
+   {
+    "chart": 12,
+    "n_points": 199,
+    "eta_lat": 0.1534336656332016,
+    "eta_pca": 0.5324758291244507
+   },
+   {
+    "chart": 13,
+    "n_points": 193,
+    "eta_lat": 0.12552420794963837,
+    "eta_pca": 0.6157107353210449
+   },
+   {
+    "chart": 14,
+    "n_points": 270,
+    "eta_lat": 0.2165241241455078,
+    "eta_pca": 0.4584297835826874
+   },
+   {
+    "chart": 15,
+    "n_points": 200,
+    "eta_lat": 0.14479510486125946,
+    "eta_pca": 0.4559224843978882
+   }
+  ],
+  "seed": 46,
+  "stratum_index": 0
+ },
+ {
+  "stratum": "stratum_1",
+  "n_points": 500,
+  "n_charts": 8,
+  "varepsilon": 0.18753987550735474,
+  "eta_pca": 0.6686913967132568,
+  "n_eta_outliers": 0,
+  "delta": 0.2046016901731491,
+  "certified": false,
+  "n_dropped_overlaps": 1,
+  "max_dropped_overlap": 2,
+  "sliver_frac": 0.024390243902439025,
+  "min_points": 5,
+  "n_overlaps_used": 10,
+  "verdict": "orientable",
+  "cocycle_verified": true,
+  "eta_per_chart": [
+   {
+    "chart": 0,
+    "n_points": 116,
+    "eta_lat": 0.17062890529632568,
+    "eta_pca": 0.3871050477027893
+   },
+   {
+    "chart": 1,
+    "n_points": 103,
+    "eta_lat": 0.22503168880939484,
+    "eta_pca": 0.6686913967132568
+   },
+   {
+    "chart": 2,
+    "n_points": 106,
+    "eta_lat": 0.09994340687990189,
+    "eta_pca": 0.4369767904281616
+   },
+   {
+    "chart": 3,
+    "n_points": 102,
+    "eta_lat": 0.15619012713432312,
+    "eta_pca": 0.37256401777267456
+   },
+   {
+    "chart": 4,
+    "n_points": 82,
+    "eta_lat": 0.1649654358625412,
+    "eta_pca": 0.49135854840278625
+   },
+   {
+    "chart": 5,
+    "n_points": 102,
+    "eta_lat": 0.17929497361183167,
+    "eta_pca": 0.6004446744918823
+   },
+   {
+    "chart": 6,
+    "n_points": 88,
+    "eta_lat": 0.18286436796188354,
+    "eta_pca": 0.45727989077568054
+   },
+   {
+    "chart": 7,
+    "n_points": 101,
+    "eta_lat": 0.15865594148635864,
+    "eta_pca": 0.4789586663246155
+   }
+  ],
+  "seed": 42,
+  "stratum_index": 1
+ },
+ {
+  "stratum": "stratum_1",
+  "n_points": 500,
+  "n_charts": 8,
+  "varepsilon": 0.259726881980896,
+  "eta_pca": 0.8828070759773254,
+  "n_eta_outliers": 0,
+  "delta": 0.05477416142821312,
+  "certified": false,
+  "n_dropped_overlaps": 2,
+  "max_dropped_overlap": 2,
+  "sliver_frac": 0.02531645569620253,
+  "min_points": 5,
+  "n_overlaps_used": 10,
+  "verdict": "orientable",
+  "cocycle_verified": true,
+  "eta_per_chart": [
+   {
+    "chart": 0,
+    "n_points": 114,
+    "eta_lat": 0.10929491370916367,
+    "eta_pca": 0.4415754973888397
+   },
+   {
+    "chart": 1,
+    "n_points": 107,
+    "eta_lat": 0.21817897260189056,
+    "eta_pca": 0.44541579484939575
+   },
+   {
+    "chart": 2,
+    "n_points": 129,
+    "eta_lat": 0.07641366869211197,
+    "eta_pca": 0.30529603362083435
+   },
+   {
+    "chart": 3,
+    "n_points": 99,
+    "eta_lat": 0.09241484850645065,
+    "eta_pca": 0.4292832016944885
+   },
+   {
+    "chart": 4,
+    "n_points": 104,
+    "eta_lat": 0.26388096809387207,
+    "eta_pca": 0.8828070759773254
+   },
+   {
+    "chart": 5,
+    "n_points": 86,
+    "eta_lat": 0.17781078815460205,
+    "eta_pca": 0.7156279683113098
+   },
+   {
+    "chart": 6,
+    "n_points": 82,
+    "eta_lat": 0.11811713874340057,
+    "eta_pca": 0.6046929359436035
+   },
+   {
+    "chart": 7,
+    "n_points": 79,
+    "eta_lat": 0.12354306131601334,
+    "eta_pca": 0.505789041519165
+   }
+  ],
+  "seed": 43,
+  "stratum_index": 1
+ },
+ {
+  "stratum": "stratum_1",
+  "n_points": 500,
+  "n_charts": 8,
+  "varepsilon": 0.18271444737911224,
+  "eta_pca": 0.8037200570106506,
+  "n_eta_outliers": 0,
+  "delta": 0.17432206869125366,
+  "certified": false,
+  "n_dropped_overlaps": 2,
+  "max_dropped_overlap": 2,
+  "sliver_frac": 0.023255813953488372,
+  "min_points": 5,
+  "n_overlaps_used": 9,
+  "verdict": "orientable",
+  "cocycle_verified": true,
+  "eta_per_chart": [
+   {
+    "chart": 0,
+    "n_points": 109,
+    "eta_lat": 0.11975442618131638,
+    "eta_pca": 0.3316328525543213
+   },
+   {
+    "chart": 1,
+    "n_points": 86,
+    "eta_lat": 0.1962946206331253,
+    "eta_pca": 0.4823427200317383
+   },
+   {
+    "chart": 2,
+    "n_points": 106,
+    "eta_lat": 0.17572206258773804,
+    "eta_pca": 0.6145496368408203
+   },
+   {
+    "chart": 3,
+    "n_points": 103,
+    "eta_lat": 0.19329050183296204,
+    "eta_pca": 0.8037200570106506
+   },
+   {
+    "chart": 4,
+    "n_points": 93,
+    "eta_lat": 0.18654987215995789,
+    "eta_pca": 0.7573164701461792
+   },
+   {
+    "chart": 5,
+    "n_points": 88,
+    "eta_lat": 0.19591882824897766,
+    "eta_pca": 0.5788275599479675
+   },
+   {
+    "chart": 6,
+    "n_points": 106,
+    "eta_lat": 0.1688232421875,
+    "eta_pca": 0.4360556900501251
+   },
+   {
+    "chart": 7,
+    "n_points": 109,
+    "eta_lat": 0.15943576395511627,
+    "eta_pca": 0.45886364579200745
+   }
+  ],
+  "seed": 44,
+  "stratum_index": 1
+ },
+ {
+  "stratum": "stratum_1",
+  "n_points": 500,
+  "n_charts": 8,
+  "varepsilon": 0.1305980384349823,
+  "eta_pca": 0.5875776410102844,
+  "n_eta_outliers": 0,
+  "delta": 0.14878997206687927,
+  "certified": true,
+  "n_dropped_overlaps": 2,
+  "max_dropped_overlap": 3,
+  "sliver_frac": 0.038461538461538464,
+  "min_points": 5,
+  "n_overlaps_used": 9,
+  "verdict": "orientable",
+  "cocycle_verified": true,
+  "eta_per_chart": [
+   {
+    "chart": 0,
+    "n_points": 117,
+    "eta_lat": 0.26364433765411377,
+    "eta_pca": 0.5416800379753113
+   },
+   {
+    "chart": 1,
+    "n_points": 93,
+    "eta_lat": 0.18479369580745697,
+    "eta_pca": 0.5875776410102844
+   },
+   {
+    "chart": 2,
+    "n_points": 109,
+    "eta_lat": 0.26111191511154175,
+    "eta_pca": 0.5054193139076233
+   },
+   {
+    "chart": 3,
+    "n_points": 98,
+    "eta_lat": 0.15866902470588684,
+    "eta_pca": 0.5110045075416565
+   },
+   {
+    "chart": 4,
+    "n_points": 114,
+    "eta_lat": 0.15997180342674255,
+    "eta_pca": 0.5622774958610535
+   },
+   {
+    "chart": 5,
+    "n_points": 112,
+    "eta_lat": 0.12607361376285553,
+    "eta_pca": 0.5094174742698669
+   },
+   {
+    "chart": 6,
+    "n_points": 79,
+    "eta_lat": 0.12496043741703033,
+    "eta_pca": 0.5567856431007385
+   },
+   {
+    "chart": 7,
+    "n_points": 78,
+    "eta_lat": 0.1582777500152588,
+    "eta_pca": 0.3725152313709259
+   }
+  ],
+  "seed": 45,
+  "stratum_index": 1
+ },
+ {
+  "stratum": "stratum_1",
+  "n_points": 500,
+  "n_charts": 8,
+  "varepsilon": 0.161720409989357,
+  "eta_pca": 0.7748180031776428,
+  "n_eta_outliers": 0,
+  "delta": 0.12727096676826477,
+  "certified": false,
+  "n_dropped_overlaps": 2,
+  "max_dropped_overlap": 4,
+  "sliver_frac": 0.05194805194805195,
+  "min_points": 5,
+  "n_overlaps_used": 11,
+  "verdict": "orientable",
+  "cocycle_verified": true,
+  "eta_per_chart": [
+   {
+    "chart": 0,
+    "n_points": 114,
+    "eta_lat": 0.10856359452009201,
+    "eta_pca": 0.3573046922683716
+   },
+   {
+    "chart": 1,
+    "n_points": 101,
+    "eta_lat": 0.15938208997249603,
+    "eta_pca": 0.6248674392700195
+   },
+   {
+    "chart": 2,
+    "n_points": 115,
+    "eta_lat": 0.24715586006641388,
+    "eta_pca": 0.6905926465988159
+   },
+   {
+    "chart": 3,
+    "n_points": 106,
+    "eta_lat": 0.17698624730110168,
+    "eta_pca": 0.7748180031776428
+   },
+   {
+    "chart": 4,
+    "n_points": 107,
+    "eta_lat": 0.1505517214536667,
+    "eta_pca": 0.4722125232219696
+   },
+   {
+    "chart": 5,
+    "n_points": 77,
+    "eta_lat": 0.1249365285038948,
+    "eta_pca": 0.3923386037349701
+   },
+   {
+    "chart": 6,
+    "n_points": 103,
+    "eta_lat": 0.1919356882572174,
+    "eta_pca": 0.5047018527984619
+   },
+   {
+    "chart": 7,
+    "n_points": 77,
+    "eta_lat": 0.06137505918741226,
+    "eta_pca": 0.5001341104507446
+   }
+  ],
+  "seed": 46,
+  "stratum_index": 1
+ },
+ {
+  "stratum": "stratum_2",
+  "n_points": 302,
+  "n_charts": 8,
+  "varepsilon": 0.11031527817249298,
+  "eta_pca": 0.4096464514732361,
+  "n_eta_outliers": 0,
+  "delta": 0.2642524540424347,
+  "certified": true,
+  "n_dropped_overlaps": 2,
+  "max_dropped_overlap": 2,
+  "sliver_frac": 0.0425531914893617,
+  "min_points": 5,
+  "n_overlaps_used": 16,
+  "verdict": "orientable",
+  "cocycle_verified": true,
+  "eta_per_chart": [
+   {
+    "chart": 0,
+    "n_points": 59,
+    "eta_lat": 0.09644439816474915,
+    "eta_pca": 0.3384362459182739
+   },
+   {
+    "chart": 1,
+    "n_points": 52,
+    "eta_lat": 0.2606657147407532,
+    "eta_pca": 0.4096464514732361
+   },
+   {
+    "chart": 2,
+    "n_points": 63,
+    "eta_lat": 0.19530890882015228,
+    "eta_pca": 0.36726114153862
+   },
+   {
+    "chart": 3,
+    "n_points": 47,
+    "eta_lat": 0.0937410444021225,
+    "eta_pca": 0.3746049702167511
+   },
+   {
+    "chart": 4,
+    "n_points": 59,
+    "eta_lat": 0.11660373210906982,
+    "eta_pca": 0.26336565613746643
+   },
+   {
+    "chart": 5,
+    "n_points": 70,
+    "eta_lat": 0.17879463732242584,
+    "eta_pca": 0.30587077140808105
+   },
+   {
+    "chart": 6,
+    "n_points": 68,
+    "eta_lat": 0.22417859733104706,
+    "eta_pca": 0.28059089183807373
+   },
+   {
+    "chart": 7,
+    "n_points": 65,
+    "eta_lat": 0.15974324941635132,
+    "eta_pca": 0.31441205739974976
+   }
+  ],
+  "seed": 42,
+  "stratum_index": 2
+ },
+ {
+  "stratum": "stratum_2",
+  "n_points": 302,
+  "n_charts": 8,
+  "varepsilon": 0.0554858073592186,
+  "eta_pca": 0.3779859244823456,
+  "n_eta_outliers": 0,
+  "delta": 0.38476574420928955,
+  "certified": true,
+  "n_dropped_overlaps": 2,
+  "max_dropped_overlap": 3,
+  "sliver_frac": 0.07142857142857142,
+  "min_points": 5,
+  "n_overlaps_used": 17,
+  "verdict": "orientable",
+  "cocycle_verified": true,
+  "eta_per_chart": [
+   {
+    "chart": 0,
+    "n_points": 102,
+    "eta_lat": 0.1704246699810028,
+    "eta_pca": 0.312290221452713
+   },
+   {
+    "chart": 1,
+    "n_points": 42,
+    "eta_lat": 0.19531406462192535,
+    "eta_pca": 0.3164280652999878
+   },
+   {
+    "chart": 2,
+    "n_points": 49,
+    "eta_lat": 0.13851752877235413,
+    "eta_pca": 0.3200829029083252
+   },
+   {
+    "chart": 3,
+    "n_points": 46,
+    "eta_lat": 0.17694449424743652,
+    "eta_pca": 0.3779859244823456
+   },
+   {
+    "chart": 4,
+    "n_points": 57,
+    "eta_lat": 0.1968260407447815,
+    "eta_pca": 0.3093586564064026
+   },
+   {
+    "chart": 5,
+    "n_points": 59,
+    "eta_lat": 0.20115545392036438,
+    "eta_pca": 0.24395596981048584
+   },
+   {
+    "chart": 6,
+    "n_points": 67,
+    "eta_lat": 0.20029087364673615,
+    "eta_pca": 0.32528650760650635
+   },
+   {
+    "chart": 7,
+    "n_points": 61,
+    "eta_lat": 0.18036863207817078,
+    "eta_pca": 0.25630268454551697
+   }
+  ],
+  "seed": 43,
+  "stratum_index": 2
+ },
+ {
+  "stratum": "stratum_2",
+  "n_points": 302,
+  "n_charts": 8,
+  "varepsilon": 0.07682864367961884,
+  "eta_pca": 0.3500570058822632,
+  "n_eta_outliers": 0,
+  "delta": 0.46611353754997253,
+  "certified": true,
+  "n_dropped_overlaps": 4,
+  "max_dropped_overlap": 4,
+  "sliver_frac": 0.09523809523809523,
+  "min_points": 5,
+  "n_overlaps_used": 16,
+  "verdict": "orientable",
+  "cocycle_verified": true,
+  "eta_per_chart": [
+   {
+    "chart": 0,
+    "n_points": 97,
+    "eta_lat": 0.19453491270542145,
+    "eta_pca": 0.3228338956832886
+   },
+   {
+    "chart": 1,
+    "n_points": 59,
+    "eta_lat": 0.2252599000930786,
+    "eta_pca": 0.2782815098762512
+   },
+   {
+    "chart": 2,
+    "n_points": 42,
+    "eta_lat": 0.1808120161294937,
+    "eta_pca": 0.34032657742500305
+   },
+   {
+    "chart": 3,
+    "n_points": 61,
+    "eta_lat": 0.14649178087711334,
+    "eta_pca": 0.3500570058822632
+   },
+   {
+    "chart": 4,
+    "n_points": 61,
+    "eta_lat": 0.11359544098377228,
+    "eta_pca": 0.2599807679653168
+   },
+   {
+    "chart": 5,
+    "n_points": 55,
+    "eta_lat": 0.11508676409721375,
+    "eta_pca": 0.2729650139808655
+   },
+   {
+    "chart": 6,
+    "n_points": 55,
+    "eta_lat": 0.10996073484420776,
+    "eta_pca": 0.2631988227367401
+   },
+   {
+    "chart": 7,
+    "n_points": 53,
+    "eta_lat": 0.12351971119642258,
+    "eta_pca": 0.3123443126678467
+   }
+  ],
+  "seed": 44,
+  "stratum_index": 2
+ },
+ {
+  "stratum": "stratum_2",
+  "n_points": 302,
+  "n_charts": 8,
+  "varepsilon": 0.08587898313999176,
+  "eta_pca": 0.38231971859931946,
+  "n_eta_outliers": 0,
+  "delta": 0.5147239565849304,
+  "certified": true,
+  "n_dropped_overlaps": 2,
+  "max_dropped_overlap": 3,
+  "sliver_frac": 0.0625,
+  "min_points": 5,
+  "n_overlaps_used": 16,
+  "verdict": "orientable",
+  "cocycle_verified": true,
+  "eta_per_chart": [
+   {
+    "chart": 0,
+    "n_points": 99,
+    "eta_lat": 0.1837737113237381,
+    "eta_pca": 0.3009655177593231
+   },
+   {
+    "chart": 1,
+    "n_points": 48,
+    "eta_lat": 0.11935858428478241,
+    "eta_pca": 0.33644038438796997
+   },
+   {
+    "chart": 2,
+    "n_points": 55,
+    "eta_lat": 0.21710947155952454,
+    "eta_pca": 0.38231971859931946
+   },
+   {
+    "chart": 3,
+    "n_points": 48,
+    "eta_lat": 0.20731961727142334,
+    "eta_pca": 0.35938161611557007
+   },
+   {
+    "chart": 4,
+    "n_points": 57,
+    "eta_lat": 0.09208989888429642,
+    "eta_pca": 0.23088718950748444
+   },
+   {
+    "chart": 5,
+    "n_points": 61,
+    "eta_lat": 0.14124588668346405,
+    "eta_pca": 0.29880577325820923
+   },
+   {
+    "chart": 6,
+    "n_points": 53,
+    "eta_lat": 0.1154608502984047,
+    "eta_pca": 0.29398733377456665
+   },
+   {
+    "chart": 7,
+    "n_points": 62,
+    "eta_lat": 0.24009859561920166,
+    "eta_pca": 0.3140352964401245
+   }
+  ],
+  "seed": 45,
+  "stratum_index": 2
+ },
+ {
+  "stratum": "stratum_2",
+  "n_points": 302,
+  "n_charts": 8,
+  "varepsilon": 0.09525179117918015,
+  "eta_pca": 0.4117630422115326,
+  "n_eta_outliers": 0,
+  "delta": 0.5139615535736084,
+  "certified": true,
+  "n_dropped_overlaps": 7,
+  "max_dropped_overlap": 4,
+  "sliver_frac": 0.0784313725490196,
+  "min_points": 5,
+  "n_overlaps_used": 13,
+  "verdict": "orientable",
+  "cocycle_verified": true,
+  "eta_per_chart": [
+   {
+    "chart": 0,
+    "n_points": 57,
+    "eta_lat": 0.17111708223819733,
+    "eta_pca": 0.24570228159427643
+   },
+   {
+    "chart": 1,
+    "n_points": 51,
+    "eta_lat": 0.17757761478424072,
+    "eta_pca": 0.4117630422115326
+   },
+   {
+    "chart": 2,
+    "n_points": 87,
+    "eta_lat": 0.12843716144561768,
+    "eta_pca": 0.2609337568283081
+   },
+   {
+    "chart": 3,
+    "n_points": 61,
+    "eta_lat": 0.1952807605266571,
+    "eta_pca": 0.31045565009117126
+   },
+   {
+    "chart": 4,
+    "n_points": 60,
+    "eta_lat": 0.1089305728673935,
+    "eta_pca": 0.2760879695415497
+   },
+   {
+    "chart": 5,
+    "n_points": 64,
+    "eta_lat": 0.13936381042003632,
+    "eta_pca": 0.35246822237968445
+   },
+   {
+    "chart": 6,
+    "n_points": 52,
+    "eta_lat": 0.09360608458518982,
+    "eta_pca": 0.3498947322368622
+   },
+   {
+    "chart": 7,
+    "n_points": 51,
+    "eta_lat": 0.17707878351211548,
+    "eta_pca": 0.3550621569156647
+   }
+  ],
+  "seed": 46,
+  "stratum_index": 2
+ },
+ {
+  "stratum": "stratum_3",
+  "n_points": 293,
+  "n_charts": 8,
+  "varepsilon": 0.0915747880935669,
+  "eta_pca": 0.3852011561393738,
+  "n_eta_outliers": 0,
+  "delta": 0.2894732654094696,
+  "certified": true,
+  "n_dropped_overlaps": 5,
+  "max_dropped_overlap": 4,
+  "sliver_frac": 0.10526315789473684,
+  "min_points": 5,
+  "n_overlaps_used": 16,
+  "verdict": "orientable",
+  "cocycle_verified": true,
+  "eta_per_chart": [
+   {
+    "chart": 0,
+    "n_points": 61,
+    "eta_lat": 0.13026638329029083,
+    "eta_pca": 0.2376442402601242
+   },
+   {
+    "chart": 1,
+    "n_points": 52,
+    "eta_lat": 0.14611445367336273,
+    "eta_pca": 0.28528445959091187
+   },
+   {
+    "chart": 2,
+    "n_points": 38,
+    "eta_lat": 0.24535322189331055,
+    "eta_pca": 0.37543392181396484
+   },
+   {
+    "chart": 3,
+    "n_points": 80,
+    "eta_lat": 0.21391990780830383,
+    "eta_pca": 0.3852011561393738
+   },
+   {
+    "chart": 4,
+    "n_points": 60,
+    "eta_lat": 0.11870647966861725,
+    "eta_pca": 0.2895793914794922
+   },
+   {
+    "chart": 5,
+    "n_points": 60,
+    "eta_lat": 0.10785920917987823,
+    "eta_pca": 0.25837913155555725
+   },
+   {
+    "chart": 6,
+    "n_points": 54,
+    "eta_lat": 0.13397353887557983,
+    "eta_pca": 0.315548300743103
+   },
+   {
+    "chart": 7,
+    "n_points": 64,
+    "eta_lat": 0.14938825368881226,
+    "eta_pca": 0.3171241283416748
+   }
+  ],
+  "seed": 42,
+  "stratum_index": 3
+ },
+ {
+  "stratum": "stratum_3",
+  "n_points": 293,
+  "n_charts": 8,
+  "varepsilon": 0.08429338037967682,
+  "eta_pca": 0.4007270634174347,
+  "n_eta_outliers": 0,
+  "delta": 0.5261675715446472,
+  "certified": true,
+  "n_dropped_overlaps": 2,
+  "max_dropped_overlap": 3,
+  "sliver_frac": 0.06818181818181818,
+  "min_points": 5,
+  "n_overlaps_used": 16,
+  "verdict": "orientable",
+  "cocycle_verified": true,
+  "eta_per_chart": [
+   {
+    "chart": 0,
+    "n_points": 71,
+    "eta_lat": 0.17136099934577942,
+    "eta_pca": 0.3638022541999817
+   },
+   {
+    "chart": 1,
+    "n_points": 57,
+    "eta_lat": 0.12578606605529785,
+    "eta_pca": 0.2891300916671753
+   },
+   {
+    "chart": 2,
+    "n_points": 44,
+    "eta_lat": 0.2544160485267639,
+    "eta_pca": 0.4007270634174347
+   },
+   {
+    "chart": 3,
+    "n_points": 61,
+    "eta_lat": 0.08929044753313065,
+    "eta_pca": 0.3555942177772522
+   },
+   {
+    "chart": 4,
+    "n_points": 58,
+    "eta_lat": 0.16222533583641052,
+    "eta_pca": 0.25209590792655945
+   },
+   {
+    "chart": 5,
+    "n_points": 64,
+    "eta_lat": 0.09667842090129852,
+    "eta_pca": 0.24902404844760895
+   },
+   {
+    "chart": 6,
+    "n_points": 56,
+    "eta_lat": 0.07294108718633652,
+    "eta_pca": 0.2170732021331787
+   },
+   {
+    "chart": 7,
+    "n_points": 58,
+    "eta_lat": 0.13253585994243622,
+    "eta_pca": 0.24662180244922638
+   }
+  ],
+  "seed": 43,
+  "stratum_index": 3
+ },
+ {
+  "stratum": "stratum_3",
+  "n_points": 293,
+  "n_charts": 8,
+  "varepsilon": 0.04740158095955849,
+  "eta_pca": 0.35012510418891907,
+  "n_eta_outliers": 0,
+  "delta": 0.3787279427051544,
+  "certified": true,
+  "n_dropped_overlaps": 6,
+  "max_dropped_overlap": 4,
+  "sliver_frac": 0.0975609756097561,
+  "min_points": 5,
+  "n_overlaps_used": 14,
+  "verdict": "orientable",
+  "cocycle_verified": true,
+  "eta_per_chart": [
+   {
+    "chart": 0,
+    "n_points": 102,
+    "eta_lat": 0.14023283123970032,
+    "eta_pca": 0.28836601972579956
+   },
+   {
+    "chart": 1,
+    "n_points": 45,
+    "eta_lat": 0.1426451951265335,
+    "eta_pca": 0.349685400724411
+   },
+   {
+    "chart": 2,
+    "n_points": 41,
+    "eta_lat": 0.10980337113142014,
+    "eta_pca": 0.35012510418891907
+   },
+   {
+    "chart": 3,
+    "n_points": 52,
+    "eta_lat": 0.20313622057437897,
+    "eta_pca": 0.28965702652931213
+   },
+   {
+    "chart": 4,
+    "n_points": 55,
+    "eta_lat": 0.10969019681215286,
+    "eta_pca": 0.24239283800125122
+   },
+   {
+    "chart": 5,
+    "n_points": 64,
+    "eta_lat": 0.11523433029651642,
+    "eta_pca": 0.26301419734954834
+   },
+   {
+    "chart": 6,
+    "n_points": 46,
+    "eta_lat": 0.09567375481128693,
+    "eta_pca": 0.32088834047317505
+   },
+   {
+    "chart": 7,
+    "n_points": 64,
+    "eta_lat": 0.1865713894367218,
+    "eta_pca": 0.342101514339447
+   }
+  ],
+  "seed": 44,
+  "stratum_index": 3
+ },
+ {
+  "stratum": "stratum_3",
+  "n_points": 293,
+  "n_charts": 8,
+  "varepsilon": 0.0850038230419159,
+  "eta_pca": 0.35657888650894165,
+  "n_eta_outliers": 0,
+  "delta": 0.38013771176338196,
+  "certified": true,
+  "n_dropped_overlaps": 5,
+  "max_dropped_overlap": 3,
+  "sliver_frac": 0.075,
+  "min_points": 5,
+  "n_overlaps_used": 14,
+  "verdict": "orientable",
+  "cocycle_verified": true,
+  "eta_per_chart": [
+   {
+    "chart": 0,
+    "n_points": 114,
+    "eta_lat": 0.14238953590393066,
+    "eta_pca": 0.2998447120189667
+   },
+   {
+    "chart": 1,
+    "n_points": 41,
+    "eta_lat": 0.22402244806289673,
+    "eta_pca": 0.35657888650894165
+   },
+   {
+    "chart": 2,
+    "n_points": 49,
+    "eta_lat": 0.11403240263462067,
+    "eta_pca": 0.33232012391090393
+   },
+   {
+    "chart": 3,
+    "n_points": 40,
+    "eta_lat": 0.17887049913406372,
+    "eta_pca": 0.3273947834968567
+   },
+   {
+    "chart": 4,
+    "n_points": 64,
+    "eta_lat": 0.0713532418012619,
+    "eta_pca": 0.24740339815616608
+   },
+   {
+    "chart": 5,
+    "n_points": 57,
+    "eta_lat": 0.1258421391248703,
+    "eta_pca": 0.2966773808002472
+   },
+   {
+    "chart": 6,
+    "n_points": 47,
+    "eta_lat": 0.14419813454151154,
+    "eta_pca": 0.3094390034675598
+   },
+   {
+    "chart": 7,
+    "n_points": 57,
+    "eta_lat": 0.13516058027744293,
+    "eta_pca": 0.27769482135772705
+   }
+  ],
+  "seed": 45,
+  "stratum_index": 3
+ },
+ {
+  "stratum": "stratum_3",
+  "n_points": 293,
+  "n_charts": 8,
+  "varepsilon": 0.09809202700853348,
+  "eta_pca": 0.33732664585113525,
+  "n_eta_outliers": 0,
+  "delta": 0.6171917915344238,
+  "certified": true,
+  "n_dropped_overlaps": 5,
+  "max_dropped_overlap": 4,
+  "sliver_frac": 0.11428571428571428,
+  "min_points": 5,
+  "n_overlaps_used": 15,
+  "verdict": "orientable",
+  "cocycle_verified": true,
+  "eta_per_chart": [
+   {
+    "chart": 0,
+    "n_points": 73,
+    "eta_lat": 0.21384041011333466,
+    "eta_pca": 0.3101891577243805
+   },
+   {
+    "chart": 1,
+    "n_points": 39,
+    "eta_lat": 0.21755272150039673,
+    "eta_pca": 0.3241538405418396
+   },
+   {
+    "chart": 2,
+    "n_points": 50,
+    "eta_lat": 0.20661762356758118,
+    "eta_pca": 0.3270665109157562
+   },
+   {
+    "chart": 3,
+    "n_points": 35,
+    "eta_lat": 0.20435403287410736,
+    "eta_pca": 0.33732664585113525
+   },
+   {
+    "chart": 4,
+    "n_points": 48,
+    "eta_lat": 0.1086525246500969,
+    "eta_pca": 0.23851440846920013
+   },
+   {
+    "chart": 5,
+    "n_points": 47,
+    "eta_lat": 0.10832346975803375,
+    "eta_pca": 0.3120032846927643
+   },
+   {
+    "chart": 6,
+    "n_points": 58,
+    "eta_lat": 0.10118085145950317,
+    "eta_pca": 0.26965904235839844
+   },
+   {
+    "chart": 7,
+    "n_points": 119,
+    "eta_lat": 0.17939242720603943,
+    "eta_pca": 0.2615904211997986
+   }
+  ],
+  "seed": 46,
+  "stratum_index": 3
+ }
+]
